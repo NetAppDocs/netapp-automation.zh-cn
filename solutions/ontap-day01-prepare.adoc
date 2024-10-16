@@ -1,0 +1,207 @@
+---
+sidebar: sidebar 
+permalink: solutions/ontap-day01-prepare.html 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare 
+summary: 在部署自动化解决方案之前、您必须准备ONTAP环境并安装和配置Ans得。 
+---
+= 准备使用ONTAP Day 1解决方案
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在部署自动化解决方案之前、您必须准备ONTAP环境并安装和配置Ans得。
+
+
+
+== 初始规划注意事项
+
+在使用此解决方案部署ONTAP集群之前、您应查看以下要求和注意事项。
+
+.基本要求
+要使用此解决方案、您必须满足以下基本要求：
+
+* 您必须能够在内部或通过ONTAP模拟器访问ONTAP软件。
+* 您必须了解如何使用ONTAP软件。
+* 您必须了解如何使用Ans得 自动化软件工具。
+
+
+.规划注意事项
+在部署此自动化解决方案之前、您必须确定：
+
+* 要运行Ans得 可控制节点的位置。
+* ONTAP系统、内部硬件或ONTAP模拟器。
+* 是否需要自定义。
+
+
+
+
+== 准备ONTAP系统
+
+无论您是使用内部ONTAP系统还是模拟ONTAP、都必须先准备好环境、然后才能部署自动化解决方案。
+
+
+
+=== (可选)安装和配置模拟ONTAP
+
+如果要通过ONTAP模拟器部署此解决方案、则必须下载并运行模拟ONTAP。
+
+.开始之前
+* 您必须下载并安装要用于运行模拟ONTAP的VMware虚拟机管理程序。
++
+** 如果您使用的是Windows或Linux操作系统、请使用VMware Workstation。
+** 如果您使用的是Mac操作系统、请使用VMware Fusion。
++
+
+NOTE: 如果您使用的是Mac OS、则必须使用Intel处理器。
+
+
+
+
+
+.步骤
+使用以下过程在本地环境中安装两个ONTAP管理器：
+
+. 从下载模拟ONTAPlink:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap["NetApp 支持站点"^]。
++
+
+NOTE: 尽管您安装了两个ONTAP联机器、但只需下载一份软件副本即可。
+
+. 如果尚未运行、请启动VMware应用程序。
+. 找到已下载的模拟器文件、然后右键单击以使用VMware应用程序打开该文件。
+. 设置第一个ONTAP实例的名称。
+. 等待模拟器启动、然后按照说明创建单节点集群。
++
+对第二个ONTAP实例重复上述步骤。
+
+. (可选)添加完整磁盘补充。
++
+从每个集群中、运行以下命令：
+
++
+[source, cli]
+----
+security unlock -username <user_01>
+security login password -username <user_01>
+set -priv advanced
+systemshell local
+disk assign -all -node <Cluster-01>-01
+----
+
+
+
+
+=== ONTAP系统的状态
+
+您必须验证ONTAP系统的初始状态、无论是内部还是通过ONTAP模拟器运行。
+
+验证是否满足以下ONTAP系统要求：
+
+* ONTAP已安装并正在运行、但尚未定义集群。
+* 此时、ONTAP将启动并显示用于访问集群的IP地址。
+* 网络可访问。
+* 您具有管理员凭据。
+* 此时将显示每日消息(Message of the Day、MOTD)横幅以及管理地址。
+
+
+
+
+== 安装所需的自动化软件
+
+本节介绍有关如何安装Ands还是 准备部署自动化解决方案的信息。
+
+
+
+=== 安装Ands器
+
+可以在Linux或Windows系统上安装Ans得。
+
+Ands得以 与ONTAP集群进行通信的默认通信方法是SSH。
+
+请参阅link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/["NetApp 和 Ansible 入门：安装 Ansible"^]安装Ands得以 安装。
+
+
+NOTE: 必须在系统的控制节点上安装有Ans得。
+
+
+
+=== 下载并准备自动化解决方案
+
+您可以使用以下步骤下载并准备要部署的自动化解决方案。
+
+. 通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["ONTAP - Day 1和amp；运行状况检查"^]自动化解决方案。该解决方案打包为 `ONTAP_DAY0_DAY1.zip`。
+. 提取zip文件夹、并将文件复制到您的Ands得以 环境中控制节点上的所需位置。
+
+
+
+
+== 初始的Ands处理 框架配置
+
+执行Ans担负 框架的初始配置：
+
+. 导航到 `playbooks/inventory/group_vars/all`。
+. 解密 `vault.yml`文件：
++
+`ansible-vault decrypt playbooks/inventory/group_vars/all/vault.yml`
+
++
+当系统提示您输入存储密码时、输入以下临时密码：
+
++
+`NetApp123!`
+
++
+
+IMPORTANT: "NetApp 123！"是用于对文件和相应的存储密码进行解密的临时 `vault.yml`密码。首次使用后，*必须*使用您自己的密码对文件进行加密。
+
+. 修改以下的Ans的 文件：
++
+** `clusters.yml`修改此文件中的值以适合您的环境。
+** `vault.yml`-解密文件后、根据您的环境修改ONTAP集群、用户名和密码值。
+** `cfg.yml`-设置的文件路径 `log2file`，并在下 `cfg`设置 `show_request`为 `True`以显示 `raw_service_request`。
++
+此 `raw_service_request`变量将显示在日志文件中以及执行期间。
+
++
+
+NOTE: 列出的每个文件都包含注释、并说明如何根据您的要求对其进行修改。
+
+
+
+. 重新加密 `vault.yml`文件：
++
+`ansible-vault encrypt playbooks/inventory/group_vars/all/vault.yml`
+
++
+
+NOTE: 系统会提示您在加密时为存储选择新密码。
+
+. 导航到 `playbooks/inventory/hosts`并设置有效的Python解释器。
+. 部署 `framework_test`服务：
++
+以下命令运行值为 `cluster_identity_info`的 `na_ontap_info`模块 `gather_subset`。这将验证基本配置是否正确、并验证您是否可以与集群进行通信。
+
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts site.yml -e cluster_name=<CLUSTER_NAME>
+-e logic_operation=framework-test
+----
++
+对每个集群运行命令。
+
++
+如果成功、您应看到类似于以下示例的输出：
+
++
+[listing]
+----
+PLAY RECAP *********************************************************************************
+localhost : ok=12 changed=1 unreachable=0 failed=0 skipped=6
+The key is ‘rescued=0’ and ‘failed=0’..
+----
+

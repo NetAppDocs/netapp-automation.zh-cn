@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: support/get-help.html 
+keywords: help, support, netapp support, technical support, kb, communities 
+summary: NetApp以多种方式为其产品和云服务提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和社区论坛。 
+---
+= 获取帮助
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp以多种方式为其产品和云服务提供支持。全天候提供丰富的免费自助支持选项，例如知识库（ KB ）文章和社区论坛。
+
+
+
+== 自助支持选项
+
+* https://kb.netapp.com/["知识库"^]
++
+搜索知识库、查找有助于解决问题的文章。
+
+* http://community.netapp.com/["社区"^]
++
+加入NetApp社区、关注正在进行的讨论或创建新的讨论。
+
+* https://mysupport.netapp.com/["NetApp 支持"^]
++
+访问故障排除工具，文档和技术支持帮助。
+
+

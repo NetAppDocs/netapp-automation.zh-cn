@@ -1,0 +1,33 @@
+---
+indexpage:
+  title: NetApp 自动化
+  summary: 通过NetApp、您可以访问我们许多产品的编程API、以及可帮助您自动执行NetApp产品和服务组合工作负载的脚本化自动化解决方案。
+  keywords: automation, netapp automation
+  lead: 通过NetApp、您可以访问我们许多产品的编程API、以及可帮助您自动执行NetApp产品和服务组合工作负载的脚本化自动化解决方案。
+  tiles:
+  - title: 开始使用
+    links:
+    - title: 新增功能
+      url: "/about/whats-new.html"
+    - title: BlueXP自动化目录
+      url: "/solutions/bac-overview.html"
+    - title: 其他资源
+      url: "/support/additional-resources.html"
+  - title: 突出显示的解决方案
+    links:
+    - title: 采用Azure NetApp Files的Oracle
+      url: "/solutions/anf-oracle.html"
+    - title: Amazon FSx for ONTAP—灾难恢复
+      url: "/solutions/fsxn-disaster-recovery.html"
+    - title: ONTAP Day 1部署
+      url: "/solutions/ontap-day01-overview.html"
+  - title: NetApp产品API
+    links:
+    - title: ONTAP
+      url: "/api/ontap.html"
+    - title: BlueXP
+      url: "/api/bluexp.html"
+    - title: Astra Control
+      url: "/api/astra.html"
+    - title: Active IQ Unified Manager
+      url: "/api/aiqum.html"

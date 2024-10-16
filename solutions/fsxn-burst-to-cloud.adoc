@@ -1,0 +1,289 @@
+---
+sidebar: sidebar 
+permalink: solutions/fsxn-burst-to-cloud.html 
+keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud 
+summary: 您可以使用此自动化解决方案为包含卷和关联FlexCache的NetApp ONTAP配置Amazon FSx。 
+---
+= Amazon FSx for NetApp ONTAP—突发到云
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用此自动化解决方案为包含卷和关联FlexCache的NetApp ONTAP配置Amazon FSx。
+
+
+NOTE: Amazon FSx for NetApp ONTAP也称为*FSx for ONTAP。
+
+.关于该解决方案
+概括地说、此解决方案提供的自动化代码将执行以下操作：
+
+* 为ONTAP文件系统配置目标FSx
+* 为文件系统配置Storage Virtual Machine (SVM)
+* 在源系统和目标系统之间创建集群对等关系
+* 在FlexCache的源系统和目标系统之间创建SVM对等关系
+* (可选)使用FSx for ONTAP创建FlexVol卷
+* 在FSx for ONTAP中创建一个FlexCache卷、其中源卷指向内置存储
+
+
+此自动化操作基于Docker和Docker编制、必须按如下所述将其安装在Linux虚拟机上。
+
+.开始之前
+要完成配置和配置、您必须满足以下条件：
+
+* 您需要通过BlueXP  Web UI下载 https://console.bluexp.netapp.com/automationCatalog["Amazon FSx for NetApp ONTAP—突发到云"^]自动化解决方案。该解决方案打包为file `AWS_FSxN_BTC.zip`。
+* 源系统和目标系统之间的网络连接。
+* 具有以下特征的Linux VM：
++
+** 基于Debian的Linux分发版
+** 部署在用于FSx for ONTAP配置的同一VPC子集上
+
+
+* AWS帐户。
+
+
+
+
+== 第1步：安装和配置Docker
+
+在基于Debian的Linux虚拟机中安装和配置Docker。
+
+.步骤
+. 准备环境。
++
+[source, cli]
+----
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+----
+. 安装Docker并验证安装。
++
+[source, cli]
+----
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+docker --version
+----
+. 添加具有关联用户的所需Linux组。
++
+首先检查Linux系统中是否存在组*Docker *。如果没有、请创建组并添加用户。默认情况下、当前shell用户将添加到组中。
+
++
+[source, cli]
+----
+sudo groupadd docker
+sudo usermod -aG docker $(whoami)
+----
+. 激活新的组和用户定义
++
+如果您使用用户创建了新组、则需要激活这些定义。要执行此操作、您可以注销Linux、然后重新进入。或者、您可以运行以下命令。
+
++
+[source, cli]
+----
+newgrp docker
+----
+
+
+
+
+== 第2步：安装Docker配置
+
+在基于Debian的Linux虚拟机中安装Docker编制。
+
+.步骤
+. 安装Docker配置。
++
+[source, cli]
+----
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+----
+. 验证安装是否成功。
++
+[source, cli]
+----
+docker-compose --version
+----
+
+
+
+
+== 第3步：准备Docker映像
+
+您需要提取并加载随自动化解决方案提供的Docker映像。
+
+.步骤
+. 将解决方案文件复制 `AWS_FSxN_BTC.zip`到要运行自动化代码的虚拟机。
++
+[source, cli]
+----
+scp -i ~/<private-key.pem> -r AWS_FSxN_BTC.zip user@<IP_ADDRESS_OF_VM>
+----
++
+输入参数 `private-key.pem`是用于AWS虚拟机身份验证(EC2实例)的专用密钥文件。
+
+. 导航到包含解决方案文件的正确文件夹、然后解压缩该文件。
++
+[source, cli]
+----
+unzip AWS_FSxN_BTC.zip
+----
+. 导航到通过解压缩操作创建的新文件夹 `AWS_FSxN_BTC`、并列出文件。您应看到文件 `aws_fsxn_flexcache_image_latest.tar.gz`。
++
+[source, cli]
+----
+ls -la
+----
+. 加载Docker映像文件。加载操作通常应在几秒钟内完成。
++
+[source, cli]
+----
+docker load -i aws_fsxn_flexcache_image_latest.tar.gz
+----
+. 确认Docker映像已加载。
++
+[source, cli]
+----
+docker images
+----
++
+您应看到标记为的 `latest`Docker映像 `aws_fsxn_flexcache_image`。
+
++
+[listing]
+----
+   REPOSITORY              TAG     IMAGE ID      CREATED      SIZE
+aws_fsxn_flexcahce_image  latest  ay98y7853769  2 weeks ago  1.19GB
+----
+
+
+
+
+== 第4步：为AWS凭据创建环境文件
+
+您必须使用访问和机密密钥创建一个用于身份验证的本地变量文件。然后将该文件添加到该文件中 `.env`。
+
+.步骤
+. 在以下位置创建 `awsauth.env`文件：
++
+`path/to/env-file/awsauth.env`
+
+. 将以下内容添加到文件中：
++
+[listing]
+----
+access_key=<>
+secret_key=<>
+----
++
+格式“*必须*”与上面所示完全相同，并且和 `value`之间没有任何空格 `key`。
+
+. 使用变量将绝对文件路径添加到此文件 `AWS_CREDS`中 `.env`。例如：
++
+`AWS_CREDS=path/to/env-file/awsauth.env`
+
+
+
+
+
+== 第5步：创建外部卷
+
+您需要一个外部卷来确保Terraform状态文件和其他重要文件是永久性的。必须为Terraform提供这些文件、才能运行工作流和部署。
+
+.步骤
+. 在Docker撰写之外创建外部卷。
++
+请确保在运行命令之前将卷名称(Last参数)更新为适当的值。
+
++
+[source, cli]
+----
+docker volume create aws_fsxn_volume
+----
+. 使用命令将外部卷的路径添加到环境文件中 `.env`：
++
+`PERSISTENT_VOL=path/to/external/volume:/volume_name`
+
++
+请务必保留现有文件内容和冒号格式。例如：
+
++
+[source, cli]
+----
+PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_flexcache
+----
++
+而是可以使用以下命令将NFS共享添加为外部卷：
+
++
+`PERSISTENT_VOL=nfs/mnt/document:/aws_fsx_flexcache`
+
+. 更新Terraform变量。
++
+.. 导航到文件夹 `aws_fsxn_variables`。
+.. 确认存在以下两个文件： `terraform.tfvars`和 `variables.tf`。
+.. 根据环境需要更新中的值 `terraform.tfvars`。
++
+有关详细信息、请参见 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/fsx_ontap_file_system["Terraform资源：aws_FSX_raf_File_system ONTAP"^] 。
+
+
+
+
+
+
+
+== 第6步：为NetApp ONTAP和FlexCache配置Amazon FSx
+
+您可以为NetApp ONTAP和FlexCache配置Amazon FSx。
+
+.步骤
+. 导航到文件夹根目录(aws_fs_bTC)、然后发出配置命令。
++
+[source, cli]
+----
+docker-compose -f docker-compose-provision.yml up
+----
++
+此命令将创建两个容器。第一个容器部署FSx for ONTAP、第二个容器创建集群对等、SVM对等、目标卷和FlexCache。
+
+. 监控配置过程。
++
+[source, cli]
+----
+docker-compose -f docker-compose-provision.yml logs -f
+----
++
+此命令可实时提供输出，但已配置为通过文件捕获日志 `deployment.log`。您可以通过编辑这些日志文件并更新变量来更改这些文件的 `DEPLOYMENT_LOGS`名称 `.env`。
+
+
+
+
+
+== 第7步：销毁Amazon FSx for NetApp ONTAP和FlexCache
+
+您可以选择删除和删除Amazon FSx for NetApp ONTAP和FlexCache。
+
+. 将文件中的 `terraform.tfvars`变量设置 `flexcache_operation`为"Destroy"。
+. 导航到文件夹根目录(aws_fs_bTC)、然后发出以下命令。
++
+[source, cli]
+----
+docker-compose -f docker-compose-destroy.yml up
+----
++
+此命令将创建两个容器。第一个容器删除FlexCache、第二个容器删除FSx for ONTAP。
+
+. 监控配置过程。
++
+[source, cli]
+----
+docker-compose -f docker-compose-destroy.yml logs -f
+----
+

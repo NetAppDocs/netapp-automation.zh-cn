@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: solutions/ontap-day01-overview.html 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, overview, introduction 
+summary: 您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTAP集群。 
+---
+= ONTAP Day 1解决方案概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTAP集群。该解决方案可从获得link:https://console.bluexp.netapp.com/automationCatalog["BlueXP自动化目录"^]。
+
+
+
+== 灵活的ONTAP部署选项
+
+根据您的要求、您可以使用内部硬件或模拟ONTAP来使用ONTAP部署和配置。
+
+.内部硬件
+您可以使用运行ONTAP的内部硬件(例如FAS或AFF系统)部署此解决方案。您必须使用Linux VM使用ONTAP来部署和配置Storage Virtual Machine集群。
+
+.模拟ONTAP
+要使用ONTAP模拟器部署此解决方案、您必须从NetApp支持站点下载最新版本的sim模拟ONTAP。模拟ONTAP是ONTAP软件的虚拟模拟器。模拟ONTAP在Windows、Linux或Mac系统上的VMware虚拟机管理程序中运行。对于Windows和Linux主机、必须使用VMware Workstation虚拟机管理程序来运行此解决方案。如果您使用的是Mac操作系统、请使用VMware Fusion虚拟机管理程序。
+
+
+
+== 分层设计
+
+通过该框架、可以简化自动化执行和逻辑任务的开发和重复使用。该框架区分了自动化中的决策任务(逻辑层)和执行步骤(执行层)。通过了解这些层的工作原理、您可以自定义配置。
+
+一本安可赛"操作手册"从头到尾执行一系列任务。该 `site.yml`手册包含该手册 `logic.yml`和该 `execution.yml`手册。
+
+运行请求时，该 `site.yml`操作手册首先调用该操作手册，然后调用该 `logic.yml`操作手册 `execution.yml`以执行服务请求。
+
+您不需要使用框架的逻辑层。逻辑层提供了一些选项、可将框架的功能扩展到硬编码值之外、以供执行。这样、您可以根据需要自定义框架功能。
+
+.逻辑层
+逻辑层由以下部分组成：
+
+* 这是一本操作 `logic.yml`手册
+* 目录中的逻辑任务文件 `logic-tasks`
+
+
+逻辑层提供了复杂决策的功能、而无需进行大量的自定义集成(例如、连接到ServiceNow)。逻辑层是可配置的、可为微服务提供输入。
+
+此外、还可以绕过逻辑层。如果要绕过逻辑层、请勿定义 `logic_operation`变量。通过直接调用该 `logic.yml`操作手册、可以在不执行的情况下执行某种级别的调试。您可以使用"debug "语句验证的值是否 `raw_service_request`正确。
+
+重要注意事项：
+
+* 该手册将 `logic.yml`搜索 `logic_operation`变量。如果在请求中定义了变量、则它会从目录中加载任务文件 `logic-tasks`。任务文件必须是.yml文件。如果没有匹配的任务文件且 `logic_operation`已定义变量、则逻辑层将失败。
+* 变量的默认值 `logic_operation`为 `no-op`。如果未明确定义变量，则默认为 `no-op`，而不运行任何操作。
+* 如果 `raw_service_request`已定义变量、则执行将继续到执行层。如果未定义此变量、则逻辑层将失败。
+
+
+.执行层
+执行层由以下部分组成：
+
+* 这是一本操作 `execution.yml`手册
+
+
+执行层通过API调用来配置ONTAP集群。该 `execution.yml`手册要求 `raw_service_request`在执行时定义变量。
+
+
+
+== 支持自定义
+
+您可以根据自己的要求以各种方式自定义此解决方案。
+
+自定义选项包括：
+
+* 正在修改《安赛尔操作手册》
+* 添加角色
+
+
+.自定义Ans｝文件
+下表介绍了此解决方案中包含的可自定义的Ansable文件。
+
+[cols="25,75"]
+|===
+| 位置 | 说明 
+
+
+ a| 
+`playbooks/inventory/hosts`
+| 包含一个包含主机和组列表的文件。 
+
+
+ a| 
+`playbooks/group_vars/all/*`
+| 通过Ans可 轻松地一次性将变量应用于多个主机。您可以修改此文件夹中的任何或所有文件，包括 `cfg.yml`、、 `clusters.yml` `defaults.yml`、 `services.yml`、 `standards.yml`和 `vault.yml`。 
+
+
+ a| 
+`playbooks/logic-tasks`
+| 支持在Ans可 内执行决策任务、并保持逻辑与执行的分离。您可以向此文件夹添加与相关服务对应的文件。 
+
+
+ a| 
+`playbooks/vars/*`
+| 在《Andsability操作手册》和角色中使用动态值、以实现配置的自定义、灵活性和可重用性。如有必要、您可以修改此文件夹中的任何或所有文件。 
+|===
+.自定义角色
+此外、您还可以通过添加或更改Ans担负 的角色(也称为微服务)来自定义解决方案。有关详细信息，请参见link:ontap-day01-customize.html["自定义"]。

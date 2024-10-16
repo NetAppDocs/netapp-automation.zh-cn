@@ -1,0 +1,443 @@
+---
+sidebar: sidebar 
+permalink: solutions/cvo-azure-burst-to-cloud.html 
+keywords: bluexp automation catalog, netapp automation solutions, azure, cloud volumes ontap, burst to cloud 
+summary: 您可以使用此自动化解决方案使用Terraform部署Cloud Volumes ONTAP for Azure。 
+---
+= 适用于Azure的Cloud Volumes ONTAP—突发到云
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+本文支持适用于Azure的NetApp Cloud Volumes ONTAP自动化解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。
+
+适用于Azure的Cloud Volumes ONTAP自动化解决方案使用Terraform自动执行适用于Azure的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于Azure的Cloud Volumes ONTAP。
+
+.开始之前
+* 您必须通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["Cloud Volumes ONTAP Azure—突发到云"^]自动化解决方案。该解决方案打包为 `CVO-Azure-Burst-To-Cloud.zip`。
+* 您必须在与Cloud Volumes ONTAP相同的网络上安装Linux VM。
+* 安装Linux VM后、必须按照本解决方案中的步骤安装所需的依赖项。
+
+
+
+
+== 第1步：安装Docker和Docker构建
+
+
+
+=== 安装 Docker
+
+以下步骤以Ubuntu 20.04 Debian Linux分发软件为例。您运行的命令取决于您使用的Linux分发软件。请参阅适用于您的配置的特定Linux分发软件文档。
+
+.步骤
+. 运行以下命令以安装Docker `sudo`：
++
+[source, cli]
+----
+sudo apt-get update
+sudo apt-get install apt-transport-https cacertificates curl gnupg-agent software-properties-common curl -fsSL https://download.docker.com/linux/ubuntu/gpg |
+sudo apt-key add -
+sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
+sudo apt-get update
+sudo apt-get install dockerce docker-ce-cli containerd.io
+----
+. 验证安装。
++
+[source, cli]
+----
+docker –version
+----
+. 验证是否已在Linux系统上创建名为"Docker "的组。如有必要、请创建组：
++
+[source, cli]
+----
+sudo groupadd docker
+----
+. 将需要访问Docker的用户添加到组：
++
+[source, cli]
+----
+sudo usermod -aG docker $(whoami)
+----
+. 您的更改将在注销并重新登录到终端后应用。或者、您也可以立即应用更改：
++
+[source, cli]
+----
+newgrp docker
+----
+
+
+
+
+=== 安装Docker配置
+
+.步骤
+. 运行以下命令以安装Docker配置 `sudo`：
++
+[source, cli]
+----
+sudo curl -L “https://github.com/docker/compose/releases/download/1.29.2/dockercompose-(𝑢𝑛𝑎𝑚𝑒 − 𝑠)−(uname -m)” -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+----
+. 验证安装。
++
+[source, cli]
+----
+docker-compose –version
+----
+
+
+
+
+== 第2步：准备Docker映像
+
+.步骤
+. 将此文件夹复制 `CVO-Azure-Burst-To-Cloud.zip`到要用于部署Cloud Volumes ONTAP的Linux VM：
++
+[source, cli]
+----
+scp -i ~/<private-key>.pem -r CVO-Azure-Burst-To-Cloud.zip <azureuser>@<IP_ADDRESS_OF_VM>:<LOCATION_TO_BE_COPIED>
+----
++
+** `private-key.pem`是用于无密码登录的私钥文件。
+** `azureuser`是虚拟机用户名。
+** `IP_ADDRESS_OF_VM`是VM IP地址。
+** `LOCATION_TO_BE_COPIED`是复制文件夹的位置。
+
+
+. 提取 `CVO-Azure-Burst-To-Cloud.zip`文件夹。您可以提取当前目录或自定义位置中的文件夹。
++
+要解压缩当前目录中的文件夹、请运行：
+
++
+[source, cli]
+----
+unzip CVO-Azure-Burst-To-Cloud.zip
+----
++
+要在自定义位置提取文件夹、请运行：
+
++
+[source, cli]
+----
+unzip CVO-Azure-Burst-To-Cloud.zip -d ~/<your_folder_name>
+----
+. 解压缩内容后、导航到 `CVO_Azure_Deployment`文件夹并运行以下命令以查看文件：
++
+[source, cli]
+----
+ ls -la
+----
++
+您应看到一个文件列表、类似于以下示例：
+
++
+[listing]
+----
+drwxr-xr-x@ 11 user1 staff 352 May 5 13:56 .
+drwxr-xr-x@ 5 user1 staff 160 May 5 14:24 ..
+-rw-r--r--@ 1 user1 staff 324 May 5 13:18 .env
+-rw-r--r--@ 1 user1 staff 1449 May 5 13:18 Dockerfile
+-rw-r--r--@ 1 user1 staff 35149 May 5 13:18 LICENSE
+-rw-r--r--@ 1 user1 staff 13356 May 5 14:26 README.md
+-rw-r--r-- 1  user1 staff 354318151 May 5 13:51 cvo_azure_flexcache_ubuntu_image_latest
+drwxr-xr-x@ 4 user1 staff 128 May 5 13:18 cvo_azure_variables
+-rw-r--r--@ 1 user1 staff 996 May 5 13:18 docker-compose-deploy.yml
+-rw-r--r--@ 1 user1 staff 1041 May 5 13:18 docker-compose-destroy.yml
+-rw-r--r--@ 1 user1 staff 4771 May 5 13:18 sp_role.json
+----
+. 找到 `cvo_azure_flexcache_ubuntu_image_latest.tar.gz`文件。其中包含部署Cloud Volumes ONTAP for Azure所需的Docker映像。
+. 解压缩文件：
++
+[source, cli]
+----
+docker load -i cvo_azure_flexcache_ubuntu_image_latest.tar.gz
+----
+. 等待几分钟、等待Docker映像加载完毕、然后验证是否已成功加载Docker映像：
++
+[source, cli]
+----
+docker images
+----
++
+您应看到一个名为且带有 `latest`标记的Docker映像 `cvo_azure_flexcache_ubuntu_image_latest`、如以下示例所示：
+
++
+[listing]
+----
+REPOSITORY TAG IMAGE ID CREATED SIZE
+cvo_azure_flexcache_ubuntu_image latest 18db15a4d59c 2 weeks ago 1.14GB
+----
+
+
+
+
+== 第3步：创建环境变量文件
+
+在此阶段、您必须创建两个环境变量文件。其中一个文件用于使用服务主体凭据对Azure Resource Manager API进行身份验证。第二个文件用于设置环境变量、以使BlueXP  Terraform模块能够找到Azure API并对其进行身份验证。
+
+.步骤
+. 创建服务主体。
++
+在创建环境变量文件之前，必须按照中的步骤创建服务主体link:https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal["创建可以访问资源的Azure Active Directory应用程序和服务主体"^]。
+
+. 将*贡献方*角色分配给新创建的服务主体。
+. 创建自定义角色。
++
+.. 找到该 `sp_role.json`文件、然后在列出的操作下检查所需的权限。
+.. 插入这些权限并将自定义角色附加到新创建的服务主体。
+
+
+. 导航到*Certificates & Secretes*并选择*New client Secret*以创建客户端机密。
++
+创建客户端密钥时，必须记录*value*列中的详细信息，因为您将无法再看到此值。您还必须记录以下信息：
+
++
+** 客户端 ID
+** 订阅ID
+** 租户ID
++
+创建环境变量时需要此信息。您可以在服务主体UI的*Overview*部分中找到客户端ID和租户ID信息。
+
+
+
+. 创建环境文件。
++
+.. 在以下位置创建 `azureauth.env`文件：
++
+`path/to/env-file/azureauth.env`
+
++
+... 将以下内容添加到文件中：
++
+ClientID=<>clientSecret=<>下标Id=<>租户ID=<>
+
++
+格式“*必须*”与上面所示完全相同，键和值之间没有空格。
+
+
+
+.. 在以下位置创建 `credentials.env`文件：
++
+`path/to/env-file/credentials.env`
+
++
+... 将以下内容添加到文件中：
++
+Azue_租 户ID=<>Azue_client_SECLE=<>Azue_client_ID=<>Azue_Probation_ID=<>
+
++
+格式“*必须*”与上面所示完全相同，键和值之间没有空格。
+
+
+
+
+
+. 将绝对文件路径添加到文件中 `.env`。
++
+在与环境变量对应的文件中输入环境文件 `.env`的 `AZURE_RM_CREDS`绝对路径 `azureauth.env`。
+
++
+`AZURE_RM_CREDS=path/to/env-file/azureauth.env`
+
++
+在与环境变量对应的文件中输入环境文件 `.env`的 `BLUEXP_TF_AZURE_CREDS`绝对路径 `credentials.env`。
+
++
+`BLUEXP_TF_AZURE_CREDS=path/to/env-file/credentials.env`
+
+
+
+
+
+== 第4步：将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅BlueXP 
+
+您可以将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅Azure Marketplace中的NetApp BlueXP 。
+
+.步骤
+. 在Azure门户中、导航到* SaaS *并选择*订阅NetApp BlueXP *。
+. 选择*云管理器(按小时、WORM和数据服务划分的容量PYGO)*计划。
++
+您可以使用与Cloud Volumes ONTAP相同的资源组，也可以使用不同的资源组。
+
+. 配置BlueXP  门户以将SaaS订阅导入到BlueXP 。
++
+您可以通过导航到*产品和计划详细信息*并选择*立即配置帐户*选项、直接从Azure门户配置此帐户。
+
++
+然后、您将重定向到BlueXP  门户以确认配置。
+
+. 选择*保存*，确认BlueXP  门户中的配置。
+
+
+
+
+== 第5步：创建外部卷
+
+您应创建一个外部卷、以保留Terraform状态文件和其他重要文件。您必须确保文件可供Terraform运行工作流和部署。
+
+.步骤
+. 在Docker撰写之外创建外部卷：
++
+[source, cli]
+----
+docker volume create « volume_name »
+----
++
+示例：
+
++
+[listing]
+----
+docker volume create cvo_azure_volume_dst
+----
+. 使用以下选项之一：
++
+.. 向环境文件添加外部卷路径 `.env`。
++
+您必须遵循以下所示的确切格式。
+
++
+格式。
+
++
+`PERSISTENT_VOL=path/to/external/volume:/cvo_azure`
+
++
+示例：
+`PERSISTENT_VOL=cvo_azure_volume_dst:/cvo_azure`
+
+.. 将NFS共享添加为外部卷。
++
+请确保Docker容器可以与NFS共享进行通信、并且已配置正确的权限(例如读/写权限)。
+
++
+... 在Docker编制文件中添加NFS共享路径作为外部卷的路径、如下所示：格式：
++
+`PERSISTENT_VOL=path/to/nfs/volume:/cvo_azure`
+
++
+示例：
+`PERSISTENT_VOL=nfs/mnt/document:/cvo_azure`
+
+
+
+
+
+. 导航到 `cvo_azure_variables`文件夹。
++
+您应在该文件夹中看到以下变量文件：
+
++
+`terraform.tfvars`
+
++
+`variables.tf`
+
+. 根据需要更改文件中的值 `terraform.tfvars`。
++
+修改文件中的任何变量值时、您必须阅读特定的支持文档 `terraform.tfvars`。根据地区、可用性区域以及适用于Azure的Cloud Volumes ONTAP支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。
+
++
+文件中已定义连接器和Cloud Volumes ONTAP Terraform模块的所有支持变量 `variables.tf`。在添加到文件之前、必须引用文件 `terraform.tfvars`中的变量名称 `variables.tf`。
+
+. 根据您的要求，您可以通过将以下选项设置为或来启用或 `false`禁用FlexCache和FlexClone `true`。
++
+以下示例将启用FlexCache和FlexClone：
+
++
+** `is_flexcache_required = true`
+** `is_flexclone_required = true`
+
+
+. 如有必要、您可以从Azure Active Directory服务检索Terraform变量的值 `az_service_principal_object_id`：
++
+.. 导航到*企业应用程序–>所有应用程序*，然后选择您先前创建的服务主体的名称。
+.. 复制对象ID并插入Terraform变量的值：
++
+`az_service_principal_object_id`
+
+
+
+
+
+
+
+== 第6步：部署Cloud Volumes ONTAP for Azure
+
+请按照以下步骤部署Cloud Volumes ONTAP for Azure。
+
+.步骤
+. 从根文件夹中、运行以下命令以触发部署：
++
+[source, cli]
+----
+docker-compose up -d
+----
++
+此时将触发两个容器、第一个容器部署Cloud Volumes ONTAP、第二个容器将遥测数据发送到AutoSupport。
+
++
+第二个容器将等待、直到第一个容器成功完成所有步骤。
+
+. 使用日志文件监控部署过程的进度：
++
+[source, cli]
+----
+docker-compose logs -f
+----
++
+此命令可实时提供输出并捕获以下日志文件中的数据：
+
++
+`deployment.log`
+
++
+`telemetry_asup.log`
+
++
+您可以通过使用以下环境变量编辑这些日志文件来更改其名称 `.env`：
+
++
+`DEPLOYMENT_LOGS`
+
++
+`TELEMETRY_ASUP_LOGS`
+
++
+以下示例显示了如何更改日志文件名：
+
++
+`DEPLOYMENT_LOGS=<your_deployment_log_filename>.log`
+
++
+`TELEMETRY_ASUP_LOGS=<your_telemetry_asup_log_filename>.log`
+
+
+
+.完成后
+您可以使用以下步骤删除临时环境并清理在部署过程中创建的项目。
+
+.步骤
+. 如果您已部署FlexCache、请在文件中设置以下选项 `terraform.tfvars`、这样将清理FlexCache卷并删除先前创建的临时环境。
++
+`flexcache_operation = "destroy"`
+
++
+
+NOTE: 可能的选项包括 `deploy`和 `destroy`。
+
+. 如果您已部署FlexClone、请在文件中设置以下选项 `terraform.tfvars`、这样将清理FlexClone卷并删除先前创建的临时环境。
++
+`flexclone_operation = "destroy"`
+
++
+
+NOTE: 可能的选项包括 `deploy`和 `destroy`。
+
+

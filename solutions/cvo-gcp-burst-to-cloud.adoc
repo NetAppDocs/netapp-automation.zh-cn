@@ -1,0 +1,397 @@
+---
+sidebar: sidebar 
+permalink: solutions/cvo-gcp-burst-to-cloud.html 
+keywords: bluexp automation catalog, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud 
+summary: 本文支持适用于Google云自动化的NetApp Cloud Volumes ONTAP解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。 
+---
+= 适用于Google Cloud的Cloud Volumes ONTAP—突发到云
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+本文支持适用于Google云自动化的NetApp Cloud Volumes ONTAP解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。
+
+适用于Google Cloud的Cloud Volumes ONTAP自动化解决方案可自动执行适用于Google Cloud的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于Google Cloud的Cloud Volumes ONTAP。
+
+.开始之前
+* 您必须通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["适用于Google Cloud的Cloud Volumes ONTAP—突发到云"^]自动化解决方案。该解决方案打包为 `cvo_gcp_flexcache.zip`。
+* 您必须在与Cloud Volumes ONTAP相同的网络上安装Linux VM。
+* 安装Linux VM后、必须按照本解决方案中的步骤安装所需的依赖项。
+
+
+
+
+== 第1步：安装Docker和Docker构建
+
+
+
+=== 安装 Docker
+
+以下步骤以Ubuntu 20.04 Debian Linux分发软件为例。您运行的命令取决于您使用的Linux分发软件。请参阅适用于您的配置的特定Linux分发软件文档。
+
+.步骤
+. 运行以下命令以安装Docker：
++
+[source, cli]
+----
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+----
+. 验证安装。
++
+[source, cli]
+----
+docker –version
+----
+. 验证是否已在Linux系统上创建名为"Docker "的组。如有必要、请创建组：
++
+[source, cli]
+----
+sudo groupadd docker
+----
+. 将需要访问Docker的用户添加到组：
++
+[source, cli]
+----
+sudo usermod -aG docker $(whoami)
+----
+. 您的更改将在注销并重新登录到终端后应用。或者、您也可以立即应用更改：
++
+[source, cli]
+----
+newgrp docker
+----
+
+
+
+
+=== 安装Docker配置
+
+.步骤
+. 运行以下命令以安装Docker配置 `sudo`：
++
+[source, cli]
+----
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+----
+. 验证安装。
++
+[source, cli]
+----
+docker-compose –version
+----
+
+
+
+
+== 第2步：准备Docker映像
+
+.步骤
+. 将此文件夹复制 `cvo_gcp_flexcache.zip`到要用于部署Cloud Volumes ONTAP的Linux VM：
++
+[source, cli]
+----
+scp -i ~/private-key.pem -r cvo_gcp_flexcache.zip gcpuser@IP_ADDRESS_OF_VM:LOCATION_TO_BE_COPIED
+----
++
+** `private-key.pem`是用于无密码登录的私钥文件。
+** `gcpuser`是虚拟机用户名。
+** `IP_ADDRESS_OF_VM`是VM IP地址。
+** `LOCATION_TO_BE_COPIED`是复制文件夹的位置。
+
+
+. 提取 `cvo_gcp_flexcache.zip`文件夹。您可以提取当前目录或自定义位置中的文件夹。
++
+要解压缩当前目录中的文件夹、请运行：
+
++
+[source, cli]
+----
+unzip cvo_gcp_flexcache.zip
+----
++
+要在自定义位置提取文件夹、请运行：
+
++
+[source, cli]
+----
+unzip cvo_gcp_flexcache.zip -d ~/<your_folder_name>
+----
+. 解压缩内容后、运行以下命令以查看文件：
++
+[source, cli]
+----
+ ls -la
+----
++
+您应看到一个文件列表、类似于以下示例：
+
++
+[listing]
+----
+    total 32
+    drwxr-xr-x   8 user  staff   256 Mar 23 12:26 .
+    drwxr-xr-x   6 user  staff   192 Mar 22 08:04 ..
+    -rw-r--r--   1 user  staff   324 Apr 12 21:37 .env
+    -rw-r--r--   1 user  staff  1449 Mar 23 13:19 Dockerfile
+    drwxr-xr-x  15 user  staff   480 Mar 23 13:19 cvo_gcp_source_code
+    drwxr-xr-x   4 user  staff   128 Apr 27 13:43 cvo_gcp_variables
+    -rw-r--r--   1 user  staff   996 Mar 24 04:06 docker-compose-deploy.yml
+    -rw-r--r--   1 user  staff  1041 Mar 24 04:06 docker-compose-destroy.yml
+----
+. 找到 `cvo_gcp_flexcache_ubuntu_image.tar`文件。其中包含部署适用于Google Cloud的Cloud Volumes ONTAP所需的Docker映像。
+. 解压缩文件：
++
+[source, cli]
+----
+docker load -i cvo_gcp_flexcache_ubuntu_image.tar
+----
+. 等待几分钟、等待Docker映像加载完毕、然后验证是否已成功加载Docker映像：
++
+[source, cli]
+----
+docker images
+----
++
+您应看到一个名为且带有 `latest`标记的Docker映像 `cvo_gcp_flexcache_ubuntu_image`、如以下示例所示：
+
++
+[listing]
+----
+REPOSITORY                            TAG        IMAGE ID       CREATED      SIZE
+    cvo_gcp_flexcache_ubuntu_image     latest    18db15a4d59c   2 weeks ago   1.14GB
+----
++
+
+NOTE: 您可以根据需要更改Docker映像名称。如果更改Docker映像名称、请确保在和 `docker-compose-destroy`文件中更新Docker映像名称 `docker-compose-deploy`。
+
+
+
+
+
+== 第3步：更新JSON文件
+
+在此阶段、您必须使用服务帐户密钥更新此 `cxo-automation-gcp.json`文件、以便对Google Cloud提供程序进行身份验证。
+
+. 创建一个具有部署Cloud Volumes ONTAP和BlueXP  连接器权限的服务帐户。link:https://cloud.google.com/iam/docs/service-accounts-create["了解有关创建服务帐户的更多信息。"^]
+. 下载帐户的密钥文件并使用密钥文件信息更新此 `cxo-automation-gcp.json`文件。 `cxo-automation-gcp.json`文件位于文件夹中 `cvo_gcp_variables`。
++
+.示例
+[listing]
+----
+{
+  "type": "service_account",
+  "project_id": "",
+  "private_key_id": "",
+  "private_key": "",
+  "client_email": "",
+  "client_id": "",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "",
+  "universe_domain": "googleapis.com"
+}
+----
++
+文件格式必须与上述格式完全相同。
+
+
+
+
+
+== 第4步：订阅BlueXP 
+
+您可以在Google云市场中订阅NetApp BlueXP 。
+
+.步骤
+. 导航到link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Google Cloud控制台"^]并选择*订阅NetApp BlueXP *。
+. 配置BlueXP  门户以将SaaS订阅导入到BlueXP 。
++
+您可以直接从Google Cloud Platform配置此功能。系统将重定向到BlueXP  门户以确认配置。
+
+. 选择*保存*，确认BlueXP  门户中的配置。
+
+
+有关详细信息，请参见 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html#associate-a-marketplace-subscription-with-google-cloud-credentials["管理BlueXP的Google Cloud凭据和订阅"^]。
+
+
+
+== 第5步：启用所需的Google Cloud API
+
+要部署Cloud Volumes ONTAP和连接器、您必须在项目中启用以下Google Cloud API。
+
+* Cloud Deployment Manager V2 API
+* 云日志记录 API
+* Cloud Resource Manager API
+* 计算引擎 API
+* 身份和访问管理（ IAM ） API
+
+
+link:https://cloud.google.com/apis/docs/getting-started#enabling_apis["了解有关启用 API 的更多信息"^]
+
+
+
+== 第6步：创建外部卷
+
+您应创建一个外部卷、以保留Terraform状态文件和其他重要文件。您必须确保文件可供Terraform运行工作流和部署。
+
+.步骤
+. 在Docker撰写之外创建外部卷：
++
+[source, cli]
+----
+docker volume create <volume_name>
+----
++
+示例：
+
++
+[listing]
+----
+docker volume create cvo_gcp_volume_dst
+----
+. 使用以下选项之一：
++
+.. 向环境文件添加外部卷路径 `.env`。
++
+您必须遵循以下所示的确切格式。
+
++
+格式。
+
++
+`PERSISTENT_VOL=path/to/external/volume:/cvo_gcp`
+
++
+示例：
+`PERSISTENT_VOL=cvo_gcp_volume_dst:/cvo_gcp`
+
+.. 将NFS共享添加为外部卷。
++
+请确保Docker容器可以与NFS共享进行通信、并且已配置正确的权限(例如读/写权限)。
+
++
+... 在Docker编制文件中添加NFS共享路径作为外部卷的路径、如下所示：格式：
++
+`PERSISTENT_VOL=path/to/nfs/volume:/cvo_gcp`
+
++
+示例：
+`PERSISTENT_VOL=nfs/mnt/document:/cvo_gcp`
+
+
+
+
+
+. 导航到 `cvo_gcp_variables`文件夹。
++
+您应在该文件夹中看到以下文件：
+
++
+** `terraform.tfvars`
+** `variables.tf`
+
+
+. 根据需要更改文件中的值 `terraform.tfvars`。
++
+修改文件中的任何变量值时、您必须阅读特定的支持文档 `terraform.tfvars`。根据地区、可用性区域以及适用于Google Cloud的Cloud Volumes ONTAP支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。
+
++
+文件中已定义连接器和Cloud Volumes ONTAP Terraform模块的所有支持变量 `variables.tf`。在添加到文件之前、必须引用文件 `terraform.tfvars`中的变量名称 `variables.tf`。
+
+. 根据您的要求，您可以通过将以下选项设置为或来启用或 `false`禁用FlexCache和FlexClone `true`。
++
+以下示例将启用FlexCache和FlexClone：
+
++
+** `is_flexcache_required = true`
+** `is_flexclone_required = true`
+
+
+
+
+
+
+== 第7步：部署适用于Google Cloud的Cloud Volumes ONTAP
+
+按照以下步骤部署适用于Google Cloud的Cloud Volumes ONTAP。
+
+.步骤
+. 从根文件夹中、运行以下命令以触发部署：
++
+[source, cli]
+----
+docker-compose -f docker-compose-deploy.yml up -d
+----
++
+此时将触发两个容器、第一个容器部署Cloud Volumes ONTAP、第二个容器将遥测数据发送到AutoSupport。
+
++
+第二个容器将等待、直到第一个容器成功完成所有步骤。
+
+. 使用日志文件监控部署过程的进度：
++
+[source, cli]
+----
+docker-compose -f docker-compose-deploy.yml logs -f
+----
++
+此命令可实时提供输出并捕获以下日志文件中的数据：
+`deployment.log`
+
++
+`telemetry_asup.log`
+
++
+您可以通过使用以下环境变量编辑这些日志文件来更改其名称 `.env`：
+
++
+`DEPLOYMENT_LOGS`
+
++
+`TELEMETRY_ASUP_LOGS`
+
++
+以下示例显示了如何更改日志文件名：
+
++
+`DEPLOYMENT_LOGS=<your_deployment_log_filename>.log`
+
++
+`TELEMETRY_ASUP_LOGS=<your_telemetry_asup_log_filename>.log`
+
+
+
+.完成后
+您可以使用以下步骤删除临时环境并清理在部署过程中创建的项目。
+
+.步骤
+. 如果您已部署FlexCache、请在文件中设置以下选项 `terraform.tfvars`、这样将清理FlexCache卷并删除先前创建的临时环境。
++
+`flexcache_operation = "destroy"`
+
++
+
+NOTE: 可能的选项包括 `deploy`和 `destroy`。
+
+. 如果您已部署FlexClone、请在文件中设置以下选项 `terraform.tfvars`、这样将清理FlexClone卷并删除先前创建的临时环境。
++
+`flexclone_operation = "destroy"`
+
++
+
+NOTE: 可能的选项包括 `deploy`和 `destroy`。
+
+

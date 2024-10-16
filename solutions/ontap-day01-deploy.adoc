@@ -1,0 +1,844 @@
+---
+sidebar: sidebar 
+permalink: solutions/ontap-day01-deploy.html 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, deploy 
+summary: 完成准备和规划后、您便可以使用ONTAP Day 1解决方案使用ONTAP来快速配置使用Ans得 集群了。 
+---
+= 使用该解决方案部署ONTAP集群
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成准备和规划后、您便可以使用ONTAP Day 1解决方案使用ONTAP来快速配置使用Ans得 集群了。
+
+在执行本节中的步骤期间、您可以随时选择测试请求、而不是实际执行请求。要测试请求，请将命令行上的操作手册更 `site.yml`改为 `logic.yml`。
+
+
+NOTE: 该 `docs/tutorial-requests.txt`位置包含此过程中使用的所有服务请求的最终版本。如果您在运行服务请求时遇到困难、可以将相关请求从文件复制 `tutorial-requests.txt`到该 `playbooks/inventory/group_vars/all/tutorial-requests.yml`位置、并根据需要修改硬编码值(IP地址、聚合名称等)。然后、您应该能够成功运行此请求。
+
+
+
+== 开始之前
+
+* 您必须安装了Ans得。
+* 您必须已下载ONTAP Day 1解决方案并将该文件夹解压缩到了Ands得以 控制的节点上的所需位置。
+* ONTAP系统状态必须满足要求、并且您必须具有必要的凭据。
+* 您必须已完成本节中所述的所有必需任务link:ontap-day01-prepare.html["准备"]。
+
+
+
+NOTE: 本解决方案中的示例使用"Cluster_01"和"Cluster_02"作为两个集群的名称。您必须将这些值替换为环境中集群的名称。
+
+
+
+== 第1步：初始集群配置
+
+在此阶段、您必须执行一些初始集群配置步骤。
+
+.步骤
+. 导航到该 `playbooks/inventory/group_vars/all/tutorial-requests.yml`位置并查看 `cluster_initial`文件中的请求。对您的环境进行任何必要的更改。
+. 在文件夹中为服务请求创建一个文件 `logic-tasks`。例如，创建一个名为的文件 `cluster_initial.yml`。
++
+将以下行复制到新文件：
+
++
+[source, cli]
+----
+- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial cluster configuration
+  set_fact:
+    raw_service_request:
+----
+. 定义 `raw_service_request`变量。
++
+您可以使用以下选项之一在文件夹中创建的文件 `logic-tasks`中定义 `raw_service_request`变量 `cluster_initial.yml`：
+
++
+** *选项1*:手动定义 `raw_service_request`变量。
++
+使用编辑器打开 `tutorial-requests.yml`文件、并将内容从第11行复制到第165行。将内容粘贴到新文件中的变量 `cluster_initial.yml`下 `raw service request`、如以下示例所示：
+
++
+image::../media/cluster_initial_line.png[要从中复制的文件行的图像]
+
++
+.显示示例
+[%collapsible]
+====
+示例 `cluster_initial.yml`文件：
+
+[listing]
+----
+- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial cluster configuration
+  set_fact:
+    raw_service_request:
+     service:          cluster_initial
+     operation:         create
+     std_name:           none
+     req_details:
+
+      ontap_aggr:
+      - hostname:                   "{{ cluster_name }}"
+        disk_count:                 24
+        name:                       n01_aggr1
+        nodes:                      "{{ cluster_name }}-01"
+        raid_type:                  raid4
+
+      - hostname:                   "{{ peer_cluster_name }}"
+        disk_count:                 24
+        name:                       n01_aggr1
+        nodes:                      "{{ peer_cluster_name }}-01"
+        raid_type:                  raid4
+
+      ontap_license:
+      - hostname:                   "{{ cluster_name }}"
+        license_codes:
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      license_codes:
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+        - XXXXXXXXXXXXXXAAAAAAAAAAAAAA
+
+    ontap_motd:
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      message:                    "New MOTD"
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      message:                    "New MOTD"
+
+    ontap_interface:
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    10.0.0.101
+      netmask:                    255.255.255.0
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    ontap_cluster_peer:
+    - hostname:                   "{{ cluster_name }}"
+      dest_cluster_name:          "{{ peer_cluster_name }}"
+      dest_intercluster_lifs:     "{{ peer_lifs }}"
+      source_cluster_name:        "{{ cluster_name }}"
+      source_intercluster_lifs:   "{{ cluster_lifs }}"
+      peer_options:
+        hostname:                 "{{ peer_cluster_name }}"
+
+----
+====
+** *选项2*:使用Jinja模板定义请求:
++
+您也可以使用以下Jinja模板格式获取该 `raw_service_request`值。
+
++
+`raw_service_request:      "{{ cluster_initial }}"`
+
+
+
+. 对第一个集群执行初始集群配置：
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts site.yml -e cluster_name=<Cluster_01>
+----
++
+继续操作前、请确认没有错误。
+
+. 对第二个集群重复此命令：
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts site.yml -e cluster_name=<Cluster_02>
+----
++
+确认第二个集群没有错误。
+
++
+向上滚动到Andsent输出的开头时、您应看到发送到框架的请求、如以下示例所示：
+
++
+.显示示例
+[%collapsible]
+====
+[listing]
+----
+TASK [Show the raw_service_request] ************************************************************************************************************
+ok: [localhost] => {
+    "raw_service_request": {
+        "operation": "create",
+        "req_details": {
+            "ontap_aggr": [
+                {
+                    "disk_count": 24,
+                    "hostname": "Cluster_01",
+                    "name": "n01_aggr1",
+                    "nodes": "Cluster_01-01",
+                    "raid_type": "raid4"
+                }
+            ],
+            "ontap_license": [
+                {
+                    "hostname": "Cluster_01",
+                    "license_codes": [
+                        "XXXXXXXXXXXXXXXAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA",
+                        "XXXXXXXXXXXXXXAAAAAAAAAAAAA"
+                    ]
+                }
+            ],
+            "ontap_motd": [
+                {
+                    "hostname": "Cluster_01",
+                    "message": "New MOTD",
+                    "vserver": "Cluster_01"
+                }
+            ]
+        },
+        "service": "cluster_initial",
+        "std_name": "none"
+    }
+}
+----
+====
+. 登录到每个ONTAP实例并验证请求是否成功。
+
+
+
+
+== 第2步：配置集群间的生命周期
+
+现在、您可以通过向请求添加LIF定义并定义 `ontap_interface`微服务来配置集群间LIF `cluster_initial`。
+
+服务定义和请求共同确定操作：
+
+* 如果您为服务定义中未包含的微服务提供服务请求、则不会执行此请求。
+* 如果您为服务请求提供服务定义中定义的一个或多个微服务、但在请求中省略了该服务、则不会执行该请求。
+
+
+该 `execution.yml`操作手册将按所列顺序扫描微服务列表、以评估服务定义：
+
+* 如果请求中有一个条目，其词典密钥与微服务定义中包含的条目匹配 `args`，则执行该请求。
+* 如果服务请求中没有匹配的条目、则会跳过此请求、并且不会出现错误。
+
+
+.步骤
+. 导航到 `cluster_initial.yml`先前创建的文件，并通过向请求定义添加以下行来修改请求：
++
+[source, cli]
+----
+    ontap_interface:
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    <ip_address>
+      netmask:                    <netmask_address>
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ cluster_name }}"
+      vserver:                    "{{ cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    <ip_address>
+      netmask:                    <netmask_address>
+      home_node:                  "{{ cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic01
+      role:                       intercluster
+      address:                    <ip_address>
+      netmask:                    <netmask_address>
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      vserver:                    "{{ peer_cluster_name }}"
+      interface_name:             ic02
+      role:                       intercluster
+      address:                    <ip_address>
+      netmask:                    <netmask_address>
+      home_node:                  "{{ peer_cluster_name }}-01"
+      home_port:                  e0c
+      ipspace:                    Default
+      use_rest:                   never
+----
+. 运行命令：
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts  site.yml -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02>
+----
+. 登录到每个实例以检查是否已将这些RIF添加到集群：
++
+.显示示例
+[%collapsible]
+====
+[listing]
+----
+Cluster_01::> net int show
+  (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster_01
+            Cluster_01-01_mgmt up/up 10.0.0.101/24   Cluster_01-01 e0c     true
+            Cluster_01-01_mgmt_auto up/up 10.101.101.101/24 Cluster_01-01 e0c true
+            cluster_mgmt up/up    10.0.0.110/24      Cluster_01-01 e0c     true
+5 entries were displayed.
+----
+====
++
+输出显示已*未*添加Lifs。这是因为 `ontap_interface`仍需要在文件中定义微服务 `services.yml`。
+
+. 验证是否已将这些生命周期添加到此变量中 `raw_service_request`。
++
+.显示示例
+[%collapsible]
+====
+以下示例显示已将这些生命周期管理器添加到请求中：
+
+[listing]
+----
+           "ontap_interface": [
+                {
+                    "address": "10.0.0.101",
+                    "home_node": "Cluster_01-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_01",
+                    "interface_name": "ic01",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_01"
+                },
+                {
+                    "address": "10.0.0.101",
+                    "home_node": "Cluster_01-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_01",
+                    "interface_name": "ic02",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_01"
+                },
+                {
+                    "address": "10.0.0.101",
+                    "home_node": "Cluster_02-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_02",
+                    "interface_name": "ic01",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_02"
+                },
+                {
+                    "address": "10.0.0.126",
+                    "home_node": "Cluster_02-01",
+                    "home_port": "e0c",
+                    "hostname": "Cluster_02",
+                    "interface_name": "ic02",
+                    "ipspace": "Default",
+                    "netmask": "255.255.255.0",
+                    "role": "intercluster",
+                    "use_rest": "never",
+                    "vserver": "Cluster_02"
+                }
+            ],
+----
+====
+. 在文件中 `services.yml`的下定义 `ontap_interface`微服务 `cluster_initial`。
++
+将以下行复制到文件中以定义微服务：
+
++
+[source, cli]
+----
+        - name: ontap_interface
+          args: ontap_interface
+          role: na/ontap_interface
+----
+.  `ontap_interface`已在请求和文件中定义微服务 `services.yml`、请再次运行请求：
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts  site.yml -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02>
+----
+. 登录到每个ONTAP实例并验证是否已添加这些LUN。
+
+
+
+
+== 第3步：(可选)配置多个集群
+
+如果需要、您可以在同一请求中配置多个集群。定义请求时、必须为每个集群提供变量名称。
+
+.步骤
+. 在文件中为第二个集群添加一个条目 `cluster_initial.yml`、以便在同一请求中配置这两个集群。
++
+以下示例将在添加第二个条目后显示 `ontap_aggr`字段。
+
++
+[listing]
+----
+   ontap_aggr:
+    - hostname:                   "{{ cluster_name }}"
+      disk_count:                 24
+      name:                       n01_aggr1
+      nodes:                      "{{ cluster_name }}-01"
+      raid_type:                  raid4
+
+    - hostname:                   "{{ peer_cluster_name }}"
+      disk_count:                 24
+      name:                       n01_aggr1
+      nodes:                      "{{ peer_cluster_name }}-01"
+      raid_type:                  raid4
+----
+. 将更改应用于下的所有其他项目 `cluster_initial`。
+. 通过将以下行复制到文件来向请求添加集群对等关系：
++
+[source, cli]
+----
+    ontap_cluster_peer:
+    - hostname:                   "{{ cluster_name }}"
+      dest_cluster_name:          "{{ cluster_peer }}"
+      dest_intercluster_lifs:     "{{ peer_lifs }}"
+      source_cluster_name:        "{{ cluster_name }}"
+      source_intercluster_lifs:   "{{ cluster_lifs }}"
+      peer_options:
+        hostname:                 "{{ cluster_peer }}"
+----
+. 运行Ands处理 请求：
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts -e cluster_name=<Cluster_01>
+site.yml -e peer_cluster_name=<Cluster_02> -e cluster_lifs=<cluster_lif_1_IP_address,cluster_lif_2_IP_address>
+-e peer_lifs=<peer_lif_1_IP_address,peer_lif_2_IP_address>
+----
+
+
+
+
+== 第4步：初始SVM配置
+
+在此过程的此阶段、您需要配置集群中的SVM。
+
+.步骤
+. 更新 `svm_initial`文件中的请求 `tutorial-requests.yml`以配置SVM和SVM对等关系。
++
+您必须配置以下内容：
+
++
+** SVM
+** SVM对等关系
+** 每个SVM的SVM接口
+
+
+. 更新请求定义中的变量定义 `svm_initial`。您必须修改以下变量定义：
++
+** `cluster_name`
+** `vserver_name`
+** `peer_cluster_name`
+** `peer_vserver`
++
+要更新定义，请删除 `svm_initial`定义后的*‘{}'* `req_details`并添加正确的定义。
+
+
+
+. 在文件夹中为服务请求创建一个文件 `logic-tasks`。例如，创建一个名为的文件 `svm_initial.yml`。
++
+将以下行复制到文件：
+
++
+[source, cli]
+----
+- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial SVM configuration
+  set_fact:
+    raw_service_request:
+----
+. 定义 `raw_service_request`变量。
++
+您可以使用以下选项之一为文件夹中 `logic-tasks`的定义 `raw_service_request`变量 `svm_initial`：
+
++
+** *选项1*:手动定义 `raw_service_request`变量。
++
+使用编辑器打开 `tutorial-requests.yml`文件、并将内容从第179行复制到第222行。将内容粘贴到新文件中的变量 `svm_initial.yml`下 `raw service request`、如以下示例所示：
+
++
+image::../media/svm_inital_line.png[要从中复制的文件行的图像]
+
++
+.显示示例
+[%collapsible]
+====
+示例 `svm_initial.yml`文件：
+
+[listing]
+----
+- name: Validate required inputs
+  ansible.builtin.assert:
+    that:
+    - service is defined
+
+- name: Include data files
+  ansible.builtin.include_vars:
+    file:   "{{ data_file_name }}.yml"
+  loop:
+  - common-site-stds
+  - user-inputs
+  - cluster-platform-stds
+  - vserver-common-stds
+  loop_control:
+    loop_var:    data_file_name
+
+- name: Initial SVM configuration
+  set_fact:
+    raw_service_request:
+     service:          svm_initial
+     operation:        create
+     std_name:         none
+     req_details:
+
+      ontap_vserver:
+      - hostname:                   "{{ cluster_name }}"
+        name:                       "{{ vserver_name }}"
+        root_volume_aggregate:      n01_aggr1
+
+      - hostname:                   "{{ peer_cluster_name }}"
+       name:                       "{{ peer_vserver }}"
+       root_volume_aggregate:      n01_aggr1
+
+      ontap_vserver_peer:
+      - hostname:                   "{{ cluster_name }}"
+        vserver:                    "{{ vserver_name }}"
+        peer_vserver:               "{{ peer_vserver }}"
+        applications:               snapmirror
+        peer_options:
+          hostname:                 "{{ peer_cluster_name }}"
+
+      ontap_interface:
+      - hostname:                   "{{ cluster_name }}"
+        vserver:                    "{{ vserver_name }}"
+        interface_name:             data01
+        role:                       data
+        address:                    10.0.0.200
+        netmask:                    255.255.255.0
+        home_node:                  "{{ cluster_name }}-01"
+        home_port:                  e0c
+        ipspace:                    Default
+        use_rest:                   never
+
+      - hostname:                   "{{ peer_cluster_name }}"
+        vserver:                    "{{ peer_vserver }}"
+        interface_name:             data01
+        role:                       data
+        address:                    10.0.0.201
+        netmask:                    255.255.255.0
+        home_node:                  "{{ peer_cluster_name }}-01"
+        home_port:                  e0c
+        ipspace:                    Default
+        use_rest:                   never
+----
+====
+** *选项2*:使用Jinja模板定义请求:
++
+您也可以使用以下Jinja模板格式获取该 `raw_service_request`值。
+
++
+[listing]
+----
+raw_service_request: "{{ svm_initial }}"
+----
+
+
+. 运行请求：
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02> -e peer_vserver=<SVM_02>  -e vserver_name=<SVM_01> site.yml
+----
+. 登录到每个ONTAP实例并验证配置。
+. 添加SVM接口。
++
+在文件中 `services.yml`的下定义 `ontap_interface`服务 `svm_initial`、然后再次运行请求：
+
++
+[source, cli]
+----
+ansible-playbook -i inventory/hosts -e cluster_name=<Cluster_01> -e peer_cluster_name=<Cluster_02> -e peer_vserver=<SVM_02>  -e vserver_name=<SVM_01> site.yml
+----
+. 登录到每个ONTAP实例并验证是否已配置SVM接口。
+
+
+
+
+== 第5步：(可选)动态定义服务请求
+
+在前面的步骤中、 `raw_service_request`变量是硬编码的。这对于学习、开发和测试非常有用。您还可以动态生成服务请求。
+
+如果您不想将所需的与更高级别的系统集成、则下一节提供了一个动态生成所需的选项 `raw_service_request`。
+
+[IMPORTANT]
+====
+* 如果 `logic_operation`未在命令中定义变量、则该 `logic.yml`文件不会从文件夹导入任何文件 `logic-tasks`。这意味着 `raw_service_request`必须在Ands还是 外部定义、并在执行时提供给框架。
+* 文件夹中的任务文件名 `logic-tasks`必须与不带.yml扩展名的变量值匹配 `logic_operation`。
+* 文件夹中的任务文件 `logic-tasks`会动态定义 `raw_service_request`。唯一的要求是将有效定义为相关文件中的最后一个任务。 `raw_service_request`
+
+
+====
+.如何动态定义服务请求
+可以通过多种方法应用逻辑任务来动态定义服务请求。下面列出了其中一些选项：
+
+* 使用文件夹中的一个Ans｝任务文件 `logic-tasks`
+* 调用返回适合转换为变量的数据的自定义角色 `raw_service_request`。
+* 调用Ands得以 环境外部的另一个工具以提供所需数据。例如、对Active IQ Unified Manager的REST API调用。
+
+
+以下示例命令使用文件为每个集群动态定义服务请求 `tutorial-requests.yml`：
+
+[source, cli]
+----
+ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_01
+-e logic_operation=tutorial-requests site.yml
+----
+[source, cli]
+----
+ansible-playbook -i inventory/hosts -e cluster2provision=Cluster_02
+-e logic_operation=tutorial-requests site.yml
+----
+
+
+== 第6步：部署ONTAP Day 1解决方案
+
+在此阶段、您应已完成以下操作：
+
+* 已根据您的要求查看和修改中的所有文件 `playbooks/inventory/group_vars/all`。每个文件中都有详细的注释、以帮助您进行更改。
+* 已将任何所需的任务文件添加到 `logic-tasks`目录。
+* 已将任何所需的数据文件添加到 `playbook/vars`目录。
+
+
+使用以下命令部署ONTAP Day 1解决方案并验证部署的运行状况：
+
+
+NOTE: 在此阶段、您应已解密并修改 `vault.yml`文件、并且必须使用新密码对其进行加密。
+
+* 运行ONTAP Day 0服务：
++
+[source, cli]
+----
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_0 -e service=cluster_day_0 -vvvv --ask-vault-pass <your_vault_password>
+----
+* 运行ONTAP Day 1服务：
++
+[source, cli]
+----
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_day_1 -e service=cluster_day_0 -vvvv --ask-vault-pass <your_vault_password>
+----
+* 应用集群范围设置：
++
+[source, cli]
+----
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=cluster_wide_settings -e service=cluster_wide_settings -vvvv --ask-vault-pass <your_vault_password>
+----
+* 运行运行状况检查：
++
+[source, cli]
+----
+ansible-playbook -i playbooks/inventory/hosts playbooks/site.yml -e logic_operation=health_checks -e service=health_checks -e enable_health_reports=true -vvvv --ask-vault-pass <your_vault_password>
+----
+

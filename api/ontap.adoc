@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: api/ontap.html 
+keywords: netapp products, product api, rest, rest api, ontap, ontap 9 
+summary: NetApp ONTAP是适用于云和内部部署的行业领先数据管理软件。ONTAP包含一个通用REST API、每个版本都会不断扩展和增强此API。请参见下面提供的文档和相关资源、开始自动化ONTAP部署。 
+---
+= ONTAP 9
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp ONTAP是适用于云和内部部署的行业领先数据管理软件。ONTAP包含一个通用REST API、每个版本都会不断扩展和增强此API。请参见下面提供的文档和相关资源、开始使用ONTAP REST API实现ONTAP部署自动化。
+
+.ONTAP REST API
+您可以使用REST API自动管理ONTAP部署。
+
+* https://docs.netapp.com/us-en/ontap-automation/["ONTAP 自动化文档"^]
+
+
+.ONTAP系列
+ONTAP系列文档提供了安装和管理ONTAP部署所需的所有内容。
+
+* https://docs.netapp.com/us-en/ontap-family/["ONTAP 产品文档"^]
+
