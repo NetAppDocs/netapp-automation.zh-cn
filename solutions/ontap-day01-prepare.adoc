@@ -66,7 +66,7 @@ NOTE: 如果您使用的是Mac OS、则必须使用Intel处理器。
 .步骤
 使用以下过程在本地环境中安装两个ONTAP管理器：
 
-. 从下载模拟ONTAPlink:https://mysupport.netapp.com/site/tools/tool-eula/simulate-ontap["NetApp 支持站点"^]。
+. 从下载模拟ONTAPlink:https://mysupport.netapp.com/site/tools/tool-eula/ontap-simulate["NetApp 支持站点"^]。
 +
 
 NOTE: 尽管您安装了两个ONTAP联机器、但只需下载一份软件副本即可。

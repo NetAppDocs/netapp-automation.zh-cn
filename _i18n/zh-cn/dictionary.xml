@@ -688,7 +688,6 @@
   <block id="4966eb364a120a592774d73e21aa726d" category="admonition">如果您使用的是Mac OS、则必须使用Intel处理器。</block>
   <block id="ed4d7e395d1e68d6a963bab9d5840faf" category="paragraph">使用以下过程在本地环境中安装两个ONTAP管理器：</block>
   <block id="9c093f14319e8253b8c9b37290597239" category="inline-link-macro">NetApp 支持站点</block>
-  <block id="14d567f38a663518761cb1833f1b3e04" category="list-text">从下载模拟ONTAP<block ref="22276e5909ee8e6f4b2080a10ab98923" category="inline-link-macro-rx"></block>。</block>
   <block id="7d2f39c9572b8f5bd33d651e0c432667" category="admonition">尽管您安装了两个ONTAP联机器、但只需下载一份软件副本即可。</block>
   <block id="9dc91177d3e72633b3eb25a758338604" category="list-text">如果尚未运行、请启动VMware应用程序。</block>
   <block id="f817b66fcefdb548feab388a90f4e715" category="list-text">找到已下载的模拟器文件、然后右键单击以使用VMware应用程序打开该文件。</block>
@@ -790,4 +789,5 @@
   <block id="08253f1b3a2c24142d028a71b1585bde" category="sidebar">Day 1</block>
   <block id="507a3a88cebc46603ce2be8eaa924eee" category="sidebar">部署</block>
   <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知识和支持</block>
+  <block id="4dead70589033e6b1a6f4a83af3f49df" category="list-text">从下载模拟ONTAP<block ref="0a7ec0895e09ff6a921ca23880ce50fd" category="inline-link-macro-rx"></block>。</block>
 </blocks>
