@@ -47,18 +47,14 @@
   <block id="aabd9360d69086aa78c24d087317998e" category="doc">Astra Control</block>
   <block id="cd20c8579964fea43bbdc959d6350ba6" category="paragraph">Astra Control是一款NetApp软件产品、可为多个环境中的Kubernetes集群提供应用程序感知型数据管理。这两种部署模式共享一个通用REST API。请参见下面提供的文档和相关资源、开始使用Asta Control REST API实现Astra部署的自动化。</block>
   <block id="676bd50e0f10e6725dc7a68e3041cfed" category="paragraph-title">Astra Control REST API</block>
-  <block id="bc8b1919523d4f7f0859e495e4897fca" category="paragraph">您可以使用REST API自动管理Astra Control Service和Astra Control Center部署。</block>
   <block id="1a0ca7f0a5aea880c24d544b4655d6ed" category="inline-link">Astra Control Automation 文档</block>
   <block id="faaa5531f226b4c786f8b3b21869030c" category="list-text"><block ref="faaa5531f226b4c786f8b3b21869030c" category="inline-link-rx"></block></block>
   <block id="1b92d5678e266ca01e6cce8b6ab8a786" category="paragraph-title">Astra系列</block>
   <block id="af9fe0e9b5ea86420daeb5098df7e9b9" category="paragraph">Asta系列文档包含安装和管理Asta及相关软件所需的所有内容。</block>
   <block id="4b675e54aa1095b2b20f8c4019de37b0" category="inline-link">Astra 文档</block>
   <block id="4d1e53b602f4f36aaeb2beabbbe99b9e" category="list-text"><block ref="4d1e53b602f4f36aaeb2beabbbe99b9e" category="inline-link-rx"></block></block>
-  <block id="8ea149be88a341fade2aeb68d94b862c" category="summary">NetApp BlueXP  BlueXP  是一个统一控制平台、可提供一个混合多云平台、用于跨内部环境和公共云环境管理存储和数据服务。它由多个不同的服务或组件组成、每个服务或组件都公开一个关联的REST API。请参见下面提供的文档和相关资源、开始自动化您的BlueXP  环境。</block>
   <block id="26181faa46a5ff13906f28fd43c2474c" category="doc">BlueXP  控制平台</block>
-  <block id="f61db6f9b045e79f79499496d5acd04d" category="paragraph">NetApp BlueXP  BlueXP  是一个统一控制平台、可提供一个混合多云平台、用于跨内部环境和公共云环境管理存储和数据服务。它由多个不同的服务或组件组成、每个服务或组件都公开一个关联的REST API。请参见下面提供的文档和相关资源、开始使用BlueXP  REST API实现BlueXP  环境自动化。</block>
   <block id="9bd035b3034a7fcd5d8d82adcefd030c" category="paragraph-title">BlueXP  REST API</block>
-  <block id="eb039644918e25d625d499bf1ae3a949" category="paragraph">您可以使用各种REST API自动管理由BlueXP  管理的存储和数据服务。</block>
   <block id="cfdec364233bc50bcbd67820cf4d5943" category="inline-link">BlueXP API文档</block>
   <block id="16017eedea8732d7858f0907cb028a49" category="list-text"><block ref="16017eedea8732d7858f0907cb028a49" category="inline-link-rx"></block></block>
   <block id="a8af7bb7f6fb22d8f1a96ec466769607" category="paragraph-title">BlueXP  系列</block>
@@ -69,7 +65,6 @@
   <block id="203165a49e3a391bdbc44e3a05d54279" category="doc">ONTAP 9</block>
   <block id="c681e8eddcefccf18ec60d7786f0e796" category="paragraph">NetApp ONTAP是适用于云和内部部署的行业领先数据管理软件。ONTAP包含一个通用REST API、每个版本都会不断扩展和增强此API。请参见下面提供的文档和相关资源、开始使用ONTAP REST API实现ONTAP部署自动化。</block>
   <block id="0ec641cfacd36c8e22a334135e2abdac" category="paragraph-title">ONTAP REST API</block>
-  <block id="93f081a7384e0c442cfe6f4ebbc38992" category="paragraph">您可以使用REST API自动管理ONTAP部署。</block>
   <block id="ec033dcf5fdadae0c2ee4fad5b7980ac" category="inline-link">ONTAP 自动化文档</block>
   <block id="556d06a351b4084e5ff2bf006ee89f0f" category="list-text"><block ref="556d06a351b4084e5ff2bf006ee89f0f" category="inline-link-rx"></block></block>
   <block id="19c3aa80eb958bede5080c6e3909d52e" category="paragraph-title">ONTAP系列</block>
@@ -790,4 +785,9 @@
   <block id="507a3a88cebc46603ce2be8eaa924eee" category="sidebar">部署</block>
   <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知识和支持</block>
   <block id="4dead70589033e6b1a6f4a83af3f49df" category="list-text">从下载模拟ONTAP<block ref="0a7ec0895e09ff6a921ca23880ce50fd" category="inline-link-macro-rx"></block>。</block>
+  <block id="c97ccc1760856d5e84a0b15270e32f34" category="paragraph">您可以使用 REST API 来自动管理Astra Control Service 和Astra Control Center 部署。</block>
+  <block id="3a60d5160ebcf3bb9333d90a2f719786" category="summary">NetApp BlueXP是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，开始实现BlueXP环境的自动化。</block>
+  <block id="513a857b8d360c308601e0ffda7b2d6c" category="paragraph">NetApp BlueXP是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，以开始使用BlueXP REST API 实现BlueXP环境的自动化。</block>
+  <block id="3ef8bda9e27327d6e6b9cd8002846fe4" category="paragraph">您可以使用各种 REST API 来自动管理由BlueXP管理的存储和数据服务。</block>
+  <block id="efb294b46ea40d11332e139b2e6bf3f8" category="paragraph">您可以使用 REST API 来自动管理ONTAP部署。</block>
 </blocks>
