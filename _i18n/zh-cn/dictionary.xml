@@ -8,14 +8,6 @@
   <block id="6f1c0c750e9768b867971c7aec4b802a" category="inline-link-macro">适用于Google Cloud的Cloud Volumes ONTAP—突发到云</block>
   <block id="51b1fcf610d89fbb7fcc404e66170c46" category="list-text"><block ref="51b1fcf610d89fbb7fcc404e66170c46" category="inline-link-macro-rx"></block></block>
   <block id="a6aef5e3bbd8b059764f33a4044e30d6" category="section-title">2023年6月4日</block>
-  <block id="2b86317cf346d1bf47abc8c04df6f353" category="inline-link">BlueXP自动化目录</block>
-  <block id="4a6e9c26b5dcd413ed786dfb7f40048d" category="paragraph">可通过BlueXP  Web用户界面访问NetApp<block ref="d5edd64e969d71f966838509aa534b4a" category="inline-link-rx"></block>。通过自动化目录、您可以访问可帮助您自动部署和集成NetApp产品的解决方案。这些解决方案的文档分为几个不同的产品或功能领域、如下所述。</block>
-  <block id="4d82a1ec1af02725042c8c785564ee7a" category="paragraph-title">适用于 NetApp ONTAP 的 Amazon FSX</block>
-  <block id="dd2366f4769cebfaf4ff4e9a630568f3" category="paragraph">提供了两个Amazon FSx for NetApp ONTAP解决方案、如下所示：</block>
-  <block id="2fd2fe753edead740ad217396fc3507d" category="inline-link-macro">Amazon FSx for NetApp ONTAP—突发到云</block>
-  <block id="818c98202f75fa15bb74a5c187002203" category="list-text"><block ref="818c98202f75fa15bb74a5c187002203" category="inline-link-macro-rx"></block></block>
-  <block id="0a23ec395dc444cc8327a11e2b2c16ea" category="inline-link-macro">Amazon FSx for NetApp ONTAP—灾难恢复</block>
-  <block id="64ed0ae989e214d192d00f70b7b85023" category="list-text"><block ref="64ed0ae989e214d192d00f70b7b85023" category="inline-link-macro-rx"></block></block>
   <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="paragraph-title">Azure NetApp Files</block>
   <block id="8d62054a2d10c801009b6dda6a47de89" category="paragraph">我们提供了一个解决方案、可帮助您使用Azure NetApp Files部署Oracle：</block>
   <block id="6aeba605d4356667f1779f834d402cf6" category="inline-link-macro">使用Azure NetApp Files的Oracle</block>
@@ -53,14 +45,6 @@
   <block id="af9fe0e9b5ea86420daeb5098df7e9b9" category="paragraph">Asta系列文档包含安装和管理Asta及相关软件所需的所有内容。</block>
   <block id="4b675e54aa1095b2b20f8c4019de37b0" category="inline-link">Astra 文档</block>
   <block id="4d1e53b602f4f36aaeb2beabbbe99b9e" category="list-text"><block ref="4d1e53b602f4f36aaeb2beabbbe99b9e" category="inline-link-rx"></block></block>
-  <block id="26181faa46a5ff13906f28fd43c2474c" category="doc">BlueXP  控制平台</block>
-  <block id="9bd035b3034a7fcd5d8d82adcefd030c" category="paragraph-title">BlueXP  REST API</block>
-  <block id="cfdec364233bc50bcbd67820cf4d5943" category="inline-link">BlueXP API文档</block>
-  <block id="16017eedea8732d7858f0907cb028a49" category="list-text"><block ref="16017eedea8732d7858f0907cb028a49" category="inline-link-rx"></block></block>
-  <block id="a8af7bb7f6fb22d8f1a96ec466769607" category="paragraph-title">BlueXP  系列</block>
-  <block id="662574e5f356f9729de2c50ac6fb18a2" category="paragraph">BlueXP  系列文档包含开始使用BlueXP  控制平台所需的所有内容。</block>
-  <block id="eeb8e055593f1709925a03e2ebb13265" category="inline-link">BlueXP文档</block>
-  <block id="1c74bcfdef9917ce07420aafab8bce83" category="list-text"><block ref="1c74bcfdef9917ce07420aafab8bce83" category="inline-link-rx"></block></block>
   <block id="ff2f8ba07cc078fa269e736e685cf654" category="summary">NetApp ONTAP是适用于云和内部部署的行业领先数据管理软件。ONTAP包含一个通用REST API、每个版本都会不断扩展和增强此API。请参见下面提供的文档和相关资源、开始自动化ONTAP部署。</block>
   <block id="203165a49e3a391bdbc44e3a05d54279" category="doc">ONTAP 9</block>
   <block id="c681e8eddcefccf18ec60d7786f0e796" category="paragraph">NetApp ONTAP是适用于云和内部部署的行业领先数据管理软件。ONTAP包含一个通用REST API、每个版本都会不断扩展和增强此API。请参见下面提供的文档和相关资源、开始使用ONTAP REST API实现ONTAP部署自动化。</block>
@@ -106,7 +90,6 @@
   <block id="84535c3fc8745d85206dddd158e0ecf0" category="list-text">安装并配置<block ref="f11c70e98fb3206ac6eeae40be288750" prefix=" " category="inline-code"></block>实用程序以创建快照</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">开始之前</block>
   <block id="ec2287b43dcb904e9e447bc893387f90" category="paragraph">要完成安装、您必须满足以下条件：</block>
-  <block id="fa9fd8ccee9b7746e7af45da8bae09fc" category="list-text">您需要通过BlueXP  Web UI下载<block ref="0a8799be60006964a5d8d0bc1c2761c3" category="inline-link-rx"></block>自动化解决方案。该解决方案打包为file<block ref="bc18238b0e7defc6245f2b37d9c3bf66" prefix=" " category="inline-code"></block>。</block>
   <block id="f0ff28f900626e4afdc09ae17f91d944" category="list-text">具有以下特征的Linux VM：</block>
   <block id="ce7a9811f47fcf7e3d9c61ce01f5fec6" category="list-text">RHEL 8 (Standard"(标准) D8s_v3-rRHEL 8)</block>
   <block id="9d173695cad8e6b2a0fd1bb066bc45fd" category="list-text">部署在用于Azure NetApp Files配置的同一个Azure虚拟网络上</block>
@@ -186,22 +169,15 @@
   <block id="2306ea5679b875866345d5cc165d8dda" category="paragraph">您可以选择将内部PDB迁移到云。</block>
   <block id="24e5245e95d27e0a56ef8b0706ba1553" category="list-text">根据环境需要在文件中设置变量<block ref="c08dfc5366dfe92564ab477174fbc285" prefix=" " category="inline-code"></block>。</block>
   <block id="dbbd032a05e7a2cc75750ffa15afe4ba" category="list-text">迁移PDB。</block>
-  <block id="5d5c422de4bc6968c09f1deac44cb37d" category="summary">BlueXP  自动化目录是一组可供NetApp客户、合作伙伴和员工使用的自动化解决方案。该目录具有多个功能和优势。</block>
-  <block id="9272cfe015b625847948709c69c5040d" category="doc">BlueXP  自动化目录概述</block>
   <block id="d617d59413c37e63a18a3c09c36ede0f" category="list-text">只需一个位置即可满足您的自动化需求</block>
-  <block id="082e649c1f4f3693f03821118af0ff91" category="list-text">您可以通过BlueXP  Web用户界面访问<block ref="d5edd64e969d71f966838509aa534b4a" category="inline-link-rx"></block>。这样、您就可以在一个位置找到增强NetApp产品和服务的自动化和操作所需的脚本、操作手册和模块。</block>
   <block id="68e20978991e52265eae03bf6a49ddc8" category="list-text">解决方案由NetApp创建和测试</block>
   <block id="e93a6ff860b35d16dc0e24aab5398232" category="list-text">所有自动化解决方案和脚本均由NetApp创建并进行了测试。每个解决方案都针对特定的客户用例或请求。大多数人都关注与NetApp文件和数据服务的集成。</block>
   <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">文档</block>
-  <block id="8354164813f5d7dbb1a6d0fa641acae8" category="list-text">每个自动化解决方案都包含相关文档、可帮助您快速入门。虽然可以通过BlueXP  Web界面访问这些解决方案、但所有文档均可从此站点获得。本文档根据NetApp产品和云服务进行组织。</block>
   <block id="4796a3d87ac5fd77d1747f897268a540" category="list-text">为未来奠定坚实的基础</block>
-  <block id="0e7211eaf170083d4747e6ebb46d393d" category="list-text">NetApp致力于帮助客户改进和简化数据中心和云环境的自动化。我们希望继续改进BlueXP  自动化目录、以满足客户需求、技术变更和持续的产品集成。</block>
   <block id="9c259c348b17e5bd2a52e94fd361100d" category="list-text">我们希望听到您的心声</block>
   <block id="13aa088e28b9f67de852da1222c36b63" category="list-text">NetApp客户体验办公室(CXO)自动化团队希望听到您的心声。如果您有任何反馈、问题或功能请求、请发送电子邮件至mailto：ng) CxO-automance-admins@NetApp．com[CXO自动化团队]。</block>
-  <block id="9b5b0f64861deda676862e1db6be31e7" category="summary">本文支持适用于AWS的NetApp Cloud Volumes ONTAP自动化解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录中获取。</block>
   <block id="59e592a2962656fc69880be2502776b2" category="doc">适用于AWS的Cloud Volumes ONTAP—突发到云</block>
   <block id="3a4376afda6ca829660672afe18b6de5" category="paragraph">适用于AWS的Cloud Volumes ONTAP自动化解决方案可使用Terraform自动执行适用于AWS的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于AWS的Cloud Volumes ONTAP。</block>
-  <block id="f13444b5b367d7262a5c5505997cb8d8" category="list-text">您必须通过BlueXP  Web UI下载<block ref="9ee8084a1c708ecead6b0f7d8bc48da3" category="inline-link-macro-rx"></block>自动化解决方案。该解决方案打包为<block ref="4620783dba91696483c654c28ea6a8d7" prefix=" " category="inline-code"></block>。</block>
   <block id="2b36326223d2900805c35d98e3d81c1d" category="list-text">您必须在与Cloud Volumes ONTAP相同的网络上安装Linux VM。</block>
   <block id="e0d727cf98f7c74530660c9a1e2280ed" category="list-text">安装Linux VM后、必须按照本解决方案中的步骤安装所需的依赖项。</block>
   <block id="3ee8de22234672e3d0f52ff7c1f3ab55" category="section-title">第1步：安装Docker和Docker构建</block>
@@ -231,7 +207,6 @@
   <block id="0fcdd1e3581872145aa2c2318fda6b15" category="paragraph">您应看到一个名为且带有<block ref="71ccb7a35a452ea8153b6d920f9f190e" prefix=" " category="inline-code"></block>标记的Docker映像<block ref="619b4acd40b16d36d704fde76818070e" prefix=" " category="inline-code"></block>、如以下示例所示：</block>
   <block id="c026ab6890aa4ccf7465dae5685ece88" category="admonition">您可以根据需要更改Docker映像名称。如果更改Docker映像名称、请确保在和<block ref="d2d2d84cc990f3db67559064ad417683" prefix=" " category="inline-code"></block>文件中更新Docker映像名称<block ref="a98cc579a6071589bad032a208de89ef" prefix=" " category="inline-code"></block>。</block>
   <block id="f675348a6853d7e9d043d9b423d1bd91" category="section-title">第3步：创建环境变量文件</block>
-  <block id="4907ab7550daf17451a57fd36a5dd8cf" category="paragraph">在此阶段、您必须创建两个环境变量文件。其中一个文件用于使用AWS访问密钥和机密密钥对AWS Resource Manager API进行身份验证。第二个文件用于设置环境变量、以使BlueXP  Terraform模块能够找到AWS API并对其进行身份验证。</block>
   <block id="d54bca52695c5238346e9ac787ced46c" category="list-text">在以下位置创建<block ref="35200b998d2a57ef482820eb891b56a0" prefix=" " category="inline-code"></block>文件：</block>
   <block id="934107c08fbd7dc9f1eb616900ed8418" category="paragraph"><block ref="4a5dd949b6c97b60d75de1cd59561b2d" prefix="" category="inline-code"></block></block>
   <block id="8425a09ec87ee927598c653ac9ae2043" category="list-text">将以下内容添加到文件中<block ref="35200b998d2a57ef482820eb891b56a0" prefix=" " category="inline-code"></block>：</block>
@@ -243,14 +218,8 @@
   <block id="e882fb727cd574bcadde7bb79d8406bc" category="list-text">导航到该<block ref="f777206e80adeaaf8e95745a5739489c" prefix=" " category="inline-code"></block>文件夹并更新凭据文件中的访问权限和机密密钥。</block>
   <block id="6720498ae50a74125359d84cb07d385e" category="paragraph">将以下内容添加到文件中：</block>
   <block id="8e6f72878836f39ae9cec5a1e294987a" category="paragraph">aws_access_key_id &lt;&gt;aws_key_access_key=&lt;&gt;</block>
-  <block id="2f7ee2b0af179a53111a1b10a77a562b" category="section-title">第4步：将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅BlueXP </block>
-  <block id="b0f2ae2e05e85f6d2485f41668ea391b" category="paragraph">您可以将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅AWS Marketplace中的NetApp BlueXP 。</block>
-  <block id="fe96b8625addca1fd2cb84fe5b784b8e" category="list-text">在AWS门户中、导航到* SaaS *并选择*订阅NetApp BlueXP *。</block>
   <block id="c72688c6e14b02d2351f47bd22bfb8d1" category="paragraph">您可以使用与Cloud Volumes ONTAP相同的资源组，也可以使用不同的资源组。</block>
-  <block id="ced15717d3b4438763f2e2c261ca15be" category="list-text">配置BlueXP  门户以将SaaS订阅导入到BlueXP 。</block>
   <block id="653620d293f08d43eeba7acae0a05434" category="paragraph">您可以直接从AWS门户配置此配置。</block>
-  <block id="a7274810106d6a3a365d0e8abe67167e" category="paragraph">系统会将您重定向到BlueXP  门户以确认配置。</block>
-  <block id="f1d809d4ddadd0b980b4911f8b280f8e" category="list-text">选择*保存*，确认BlueXP  门户中的配置。</block>
   <block id="9eaade7d660bb23f4e0fd7b0f2feb5f0" category="paragraph">您应创建一个外部卷、以保留Terraform状态文件和其他重要文件。您必须确保文件可供Terraform运行工作流和部署。</block>
   <block id="607c398d5c3d2cd43ca039ef926c8047" category="list-text">在Docker撰写之外创建外部卷：</block>
   <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">示例：</block>
@@ -271,7 +240,6 @@
   <block id="935f43837ab5913b0b20d03f1f629cdd" category="list-text"><block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix="" category="inline-code"></block></block>
   <block id="b10b322b96b589c3402bc7ad0bfba4cc" category="list-text">根据需要更改文件中的值<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>。</block>
   <block id="e789fee7876fa83156d8c98bbeb6f127" category="paragraph">修改文件中的任何变量值时、您必须阅读特定的支持文档<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>。根据地区、可用性区域以及Cloud Volumes ONTAP for AWS支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。</block>
-  <block id="3fb2c016fa49bac3303eaec34d954144" category="paragraph">文件中已定义连接器和Cloud Volumes ONTAP Terraform模块的所有支持变量<block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix=" " category="inline-code"></block>。在添加到文件之前、必须引用文件<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>中的变量名称<block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix=" " category="inline-code"></block>。</block>
   <block id="24fd5011eb6086c915eb6eb7c052f464" category="list-text">根据您的要求，您可以通过将以下选项设置为或来启用或<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>禁用FlexCache和FlexClone<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>。</block>
   <block id="2d26bda51ed6b6c1343dbc83898511fa" category="paragraph">以下示例将启用FlexCache和FlexClone：</block>
   <block id="a791d26e95a7543066f1215411f3e198" category="list-text"><block ref="7e64a2b0f580e2bb0e4092b9050c80a9" prefix="" category="inline-code"></block></block>
@@ -300,16 +268,13 @@
   <block id="085443c446415c0e8dfae8cfb8269629" category="admonition">可能的选项包括<block ref="078f40fa23e0672777adc7c05d4773dd" prefix=" " category="inline-code"></block>和<block ref="fb14982288108e1fbd6207ef55f05027" prefix=" " category="inline-code"></block>。</block>
   <block id="7d2c3c1ed5c6e6f809462f6397b24660" category="summary">您可以使用此自动化解决方案使用Terraform部署Cloud Volumes ONTAP for Azure。</block>
   <block id="e19943d1705ed16e36fb5b3a85dc2035" category="doc">适用于Azure的Cloud Volumes ONTAP—突发到云</block>
-  <block id="d4a0a8a5bbbee6db1cb9e06e8904ad42" category="paragraph">本文支持适用于Azure的NetApp Cloud Volumes ONTAP自动化解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。</block>
   <block id="fdf1da7025a12245364e391cff8fa55e" category="paragraph">适用于Azure的Cloud Volumes ONTAP自动化解决方案使用Terraform自动执行适用于Azure的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于Azure的Cloud Volumes ONTAP。</block>
-  <block id="89f227d5fe904ef7a372dd0831cba23b" category="list-text">您必须通过BlueXP  Web UI下载<block ref="1ddb5ccfb0409f4b4310a1f2918594e3" category="inline-link-macro-rx"></block>自动化解决方案。该解决方案打包为<block ref="c885be86fb876836f2cffef8e6f892c3" prefix=" " category="inline-code"></block>。</block>
   <block id="c12e9e6aa9653bb2925f672aad5e2142" category="list-text">将此文件夹复制<block ref="c885be86fb876836f2cffef8e6f892c3" prefix=" " category="inline-code"></block>到要用于部署Cloud Volumes ONTAP的Linux VM：</block>
   <block id="f6e6730d6997c7cec992891e4a1c8b0b" category="list-text"><block ref="5ff4fe5cb694d92583d391dd8529066d" prefix="" category="inline-code"></block>是虚拟机用户名。</block>
   <block id="e058c807e926d385e8f2c37c714fbfe0" category="list-text">提取<block ref="c885be86fb876836f2cffef8e6f892c3" prefix=" " category="inline-code"></block>文件夹。您可以提取当前目录或自定义位置中的文件夹。</block>
   <block id="c7f1addae83f60eb21267becf5dea1e0" category="list-text">解压缩内容后、导航到<block ref="ea9df13e32359398d19d4196dfaf92a7" prefix=" " category="inline-code"></block>文件夹并运行以下命令以查看文件：</block>
   <block id="b168f70e88cb4f49d4b3e0c7b1cd1dfa" category="list-text">找到<block ref="a41388e75db0a56d2acb456bd9d6e37b" prefix=" " category="inline-code"></block>文件。其中包含部署Cloud Volumes ONTAP for Azure所需的Docker映像。</block>
   <block id="67d5e2ebef240ecc2ef42d0946157f14" category="paragraph">您应看到一个名为且带有<block ref="71ccb7a35a452ea8153b6d920f9f190e" prefix=" " category="inline-code"></block>标记的Docker映像<block ref="acf69c5b79bd41b1503b1d20a026c60b" prefix=" " category="inline-code"></block>、如以下示例所示：</block>
-  <block id="dd5960e7bffd99f7ee3b51e73670f175" category="paragraph">在此阶段、您必须创建两个环境变量文件。其中一个文件用于使用服务主体凭据对Azure Resource Manager API进行身份验证。第二个文件用于设置环境变量、以使BlueXP  Terraform模块能够找到Azure API并对其进行身份验证。</block>
   <block id="4756c84ef3e46051e4d56ea0c6ae3e9d" category="list-text">创建服务主体。</block>
   <block id="8574e8cb83343bdec6f5b86d21bfa16b" category="inline-link-macro">创建可以访问资源的Azure Active Directory应用程序和服务主体</block>
   <block id="7d8b48ff4c2780be6cb609cf1ea71bdb" category="paragraph">在创建环境变量文件之前，必须按照中的步骤创建服务主体<block ref="69db1b890a0765a504939c4d0eae8a36" category="inline-link-macro-rx"></block>。</block>
@@ -336,11 +301,8 @@
   <block id="ab12a0661762f3df9609da95580f5a25" category="paragraph"><block ref="da98aafd0446564054a74c778efdf4f0" prefix="" category="inline-code"></block></block>
   <block id="65d5aaba759b969ac07758fa93ef2981" category="paragraph">在与环境变量对应的文件中输入环境文件<block ref="f579cccc964135c7d644c7b2d3b0d3ec" prefix=" " category="inline-code"></block>的<block ref="d9b0717a1f49333f5743f1c418f98a3e" prefix=" " category="inline-code"></block>绝对路径<block ref="b47b245422281b94869272778023ebcc" prefix=" " category="inline-code"></block>。</block>
   <block id="9551c07194db5add04408dcf9d4d7acf" category="paragraph"><block ref="585a7d6034855fee518db0083c875b49" prefix="" category="inline-code"></block></block>
-  <block id="115358289763fb9761317344e7b77a55" category="paragraph">您可以将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅Azure Marketplace中的NetApp BlueXP 。</block>
-  <block id="fc774a6f9a9bc37c66bbb04cf70cada4" category="list-text">在Azure门户中、导航到* SaaS *并选择*订阅NetApp BlueXP *。</block>
   <block id="dd7b8a7974111efbd549e4f54fc12e86" category="list-text">选择*云管理器(按小时、WORM和数据服务划分的容量PYGO)*计划。</block>
   <block id="5324339ba454f54b4d1c29a1bda97112" category="paragraph">您可以通过导航到*产品和计划详细信息*并选择*立即配置帐户*选项、直接从Azure门户配置此帐户。</block>
-  <block id="529559656bf7d5fc6d731f97dc3d9a18" category="paragraph">然后、您将重定向到BlueXP  门户以确认配置。</block>
   <block id="e6b1c26c73bcc445d9d2465d871ca623" category="paragraph"><block ref="02d1c3229f8cf2b68ce516c14597799f" prefix="" category="inline-code"></block></block>
   <block id="3a27ce66bcd99829ec680c851e363a1e" category="paragraph">示例：<block ref="f509563c40c925834f580e9269bb578f" prefix=" " category="inline-code"></block></block>
   <block id="778c150d6dcb342c842f259bbbf4f078" category="paragraph"><block ref="78501e0409eec1c72d9cb57cf0fff414" prefix="" category="inline-code"></block></block>
@@ -358,9 +320,7 @@
   <block id="98771aa4049dca5569244940caa12490" category="paragraph"><block ref="ecb0093a5689314955e28495cd621753" prefix="" category="inline-code"></block></block>
   <block id="6741f7abf3aa6ef11e28ab2fc48d8716" category="list-text">如果您已部署FlexCache、请在文件中设置以下选项<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>、这样将清理FlexCache卷并删除先前创建的临时环境。</block>
   <block id="7ef493ae542ac9076ff2121ad70e93d1" category="list-text">如果您已部署FlexClone、请在文件中设置以下选项<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>、这样将清理FlexClone卷并删除先前创建的临时环境。</block>
-  <block id="92e012e30683743460baae2798b7454e" category="summary">本文支持适用于Google云自动化的NetApp Cloud Volumes ONTAP解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。</block>
   <block id="70d149d22386474d99caac533c68bb2c" category="paragraph">适用于Google Cloud的Cloud Volumes ONTAP自动化解决方案可自动执行适用于Google Cloud的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于Google Cloud的Cloud Volumes ONTAP。</block>
-  <block id="fb5a19b47f5459e975e6cc6ffbd55fcf" category="list-text">您必须通过BlueXP  Web UI下载<block ref="5bfe4bd3ce07304807e21420ac8726c8" category="inline-link-macro-rx"></block>自动化解决方案。该解决方案打包为<block ref="3122a7091302712dc5048f11784a1882" prefix=" " category="inline-code"></block>。</block>
   <block id="c1d4ac611e9e2f13ac71771c15839512" category="list-text">运行以下命令以安装Docker：</block>
   <block id="2620ba84e9ee2d605267499de9ec8744" category="list-text">将此文件夹复制<block ref="3122a7091302712dc5048f11784a1882" prefix=" " category="inline-code"></block>到要用于部署Cloud Volumes ONTAP的Linux VM：</block>
   <block id="e047207feed5047a9ff3f134f8ae8321" category="list-text"><block ref="375fec901ac1e8809111e0226ae2a5c4" prefix="" category="inline-code"></block>是虚拟机用户名。</block>
@@ -371,19 +331,11 @@
   <block id="f9a153283596e6c7e8753cacd765f1fc" category="section-title">第3步：更新JSON文件</block>
   <block id="42ce67a66fde45352e3db41a1a57d54b" category="paragraph">在此阶段、您必须使用服务帐户密钥更新此<block ref="af92bf6bf5f4928b321d7738a6068dd1" prefix=" " category="inline-code"></block>文件、以便对Google Cloud提供程序进行身份验证。</block>
   <block id="b1f47b1cf9db709b4fec668b6c9f071c" category="inline-link-macro">了解有关创建服务帐户的更多信息。</block>
-  <block id="89cda20d6e97cfeb4f5d372a42e68a56" category="list-text">创建一个具有部署Cloud Volumes ONTAP和BlueXP  连接器权限的服务帐户。<block ref="c2b6aba427b8cb58071597c60cc5709a" category="inline-link-macro-rx"></block></block>
   <block id="fbcb4d651023bd547106a64a43f3c29b" category="list-text">下载帐户的密钥文件并使用密钥文件信息更新此<block ref="af92bf6bf5f4928b321d7738a6068dd1" prefix=" " category="inline-code"></block>文件。<block ref="af92bf6bf5f4928b321d7738a6068dd1" prefix=" " category="inline-code"></block>文件位于文件夹中<block ref="f377976945af1ad2c6e2801d01115448" prefix=" " category="inline-code"></block>。</block>
   <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="listing-title">示例</block>
   <block id="81904f89da8f471c6d21a35183df68b0" category="paragraph">文件格式必须与上述格式完全相同。</block>
-  <block id="065049e1e2c0df20f3148f5d46462d11" category="section-title">第4步：订阅BlueXP </block>
-  <block id="ffcc69297f0e07a9e942b6631079ad1b" category="paragraph">您可以在Google云市场中订阅NetApp BlueXP 。</block>
   <block id="b6c8b93a52d1fa156e7be803518b8c9a" category="inline-link-macro">Google Cloud控制台</block>
-  <block id="5f2574b27d98802030b4c26a3135e1b7" category="list-text">导航到<block ref="9e380fd6b80c64d2f38ea11babc2a93b" category="inline-link-macro-rx"></block>并选择*订阅NetApp BlueXP *。</block>
-  <block id="26514414412b5fd8cd03fe7fe2e9adf6" category="paragraph">您可以直接从Google Cloud Platform配置此功能。系统将重定向到BlueXP  门户以确认配置。</block>
-  <block id="f691281f53b81c9f5d73a97dc7c334fd" category="inline-link-macro">管理BlueXP的Google Cloud凭据和订阅</block>
-  <block id="9b64915299dcdbacf95e82a84ddd599c" category="paragraph">有关详细信息，请参见 <block ref="671ef92e8206128f563d24d2bbbcdfc6" category="inline-link-macro-rx"></block>。</block>
   <block id="d601067f56f2e95e5bf3179dcc7e13f9" category="section-title">第5步：启用所需的Google Cloud API</block>
-  <block id="ff14c8d55e1e81c87ceda218290d4821" category="paragraph">要部署Cloud Volumes ONTAP和连接器、您必须在项目中启用以下Google Cloud API。</block>
   <block id="d82c8fcef9b6dd8fb6808c96dcbc5bb5" category="list-text">Cloud Deployment Manager V2 API</block>
   <block id="1439ef482dee1b1e4b2daac93de36c44" category="list-text">云日志记录 API</block>
   <block id="9e636409b20980fb5089c87705851b4d" category="list-text">Cloud Resource Manager API</block>
@@ -402,8 +354,6 @@
   <block id="7373b50406798190e26a2e832c7ad6f4" category="paragraph">修改文件中的任何变量值时、您必须阅读特定的支持文档<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>。根据地区、可用性区域以及适用于Google Cloud的Cloud Volumes ONTAP支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。</block>
   <block id="2fb90271c759d19e087baa9b216a5221" category="section-title">第7步：部署适用于Google Cloud的Cloud Volumes ONTAP</block>
   <block id="78987e3939dc92928d12fd92823e2a80" category="paragraph">按照以下步骤部署适用于Google Cloud的Cloud Volumes ONTAP。</block>
-  <block id="2180e03803676ed25b3cac70a6100443" category="summary">您可以使用此自动化解决方案为包含卷和关联FlexCache的NetApp ONTAP配置Amazon FSx。</block>
-  <block id="4a56403c32c948e8f251c29bddd22609" category="admonition">Amazon FSx for NetApp ONTAP也称为*FSx for ONTAP。</block>
   <block id="f031372e35714d1e925dfc1451a4dbee" category="list-text">为ONTAP文件系统配置目标FSx</block>
   <block id="54da27626cf7b1185f954edeb0f8aee9" category="list-text">为文件系统配置Storage Virtual Machine (SVM)</block>
   <block id="e8f2e9290ff73ca9340d8c33cd025ef2" category="list-text">在源系统和目标系统之间创建集群对等关系</block>
@@ -412,7 +362,6 @@
   <block id="30a0e039abe0e6915900958cfc9a66ac" category="list-text">在FSx for ONTAP中创建一个FlexCache卷、其中源卷指向内置存储</block>
   <block id="6ea161ba14b946634c32e79f22a5283a" category="paragraph">此自动化操作基于Docker和Docker编制、必须按如下所述将其安装在Linux虚拟机上。</block>
   <block id="09275d882e41e4724e4e23aa722475d2" category="paragraph">要完成配置和配置、您必须满足以下条件：</block>
-  <block id="62262322522d94d533310fe97363ebca" category="list-text">您需要通过BlueXP  Web UI下载<block ref="008001527290ebd3bc25df4cac35bcaf" category="inline-link-rx"></block>自动化解决方案。该解决方案打包为file<block ref="e2e5a273eb632b27931109b94363bfa4" prefix=" " category="inline-code"></block>。</block>
   <block id="7d0450eaaf9623244d38bd6d4628c3f7" category="list-text">源系统和目标系统之间的网络连接。</block>
   <block id="9e21305b31d9f067e02bcff89baf7413" category="list-text">基于Debian的Linux分发版</block>
   <block id="2ce89591e385788ef7048bb31059c087" category="list-text">部署在用于FSx for ONTAP配置的同一VPC子集上</block>
@@ -440,14 +389,10 @@
   <block id="c8aec0081255af21649b84533e594b33" category="list-text">导航到文件夹<block ref="b148c96a50867a6f53a047e40dd52f0f" prefix=" " category="inline-code"></block>。</block>
   <block id="dfaffc9af3fdd1bca808fa0c6e5d7a71" category="inline-link">Terraform资源：aws_FSX_raf_File_system ONTAP</block>
   <block id="4ba7a7578e05d12d7f279565f5f83301" category="paragraph">有关详细信息、请参见<block ref="9b30e1cf19d336589953be1634689dbb" category="inline-link-rx"></block> 。</block>
-  <block id="3a8fcfd918302105b53502e9b246954c" category="section-title">第6步：为NetApp ONTAP和FlexCache配置Amazon FSx</block>
-  <block id="20914d72ffe8f6cd37a7498b6c69ee4d" category="paragraph">您可以为NetApp ONTAP和FlexCache配置Amazon FSx。</block>
   <block id="734d8f47d8017558876620cba1f85ef8" category="list-text">导航到文件夹根目录(aws_fs_bTC)、然后发出配置命令。</block>
   <block id="232a9206f868eb2f8bf150cfcafac72e" category="paragraph">此命令将创建两个容器。第一个容器部署FSx for ONTAP、第二个容器创建集群对等、SVM对等、目标卷和FlexCache。</block>
   <block id="b121988a991077eff9b8fab3833d17c9" category="list-text">监控配置过程。</block>
   <block id="6a5c4fa24efdb93a23ec6867c1681a70" category="paragraph">此命令可实时提供输出，但已配置为通过文件捕获日志<block ref="ecb0093a5689314955e28495cd621753" prefix=" " category="inline-code"></block>。您可以通过编辑这些日志文件并更新变量来更改这些文件的<block ref="c5d1ae1057f05d40dd703a96c9da0064" prefix=" " category="inline-code"></block>名称<block ref="f579cccc964135c7d644c7b2d3b0d3ec" prefix=" " category="inline-code"></block>。</block>
-  <block id="2f7df027134d1eac67df16674e7de843" category="section-title">第7步：销毁Amazon FSx for NetApp ONTAP和FlexCache</block>
-  <block id="65e99bdb541de0d7f87a527201891f0c" category="paragraph">您可以选择删除和删除Amazon FSx for NetApp ONTAP和FlexCache。</block>
   <block id="df00ee6e5793390a9bf8499863d1b627" category="list-text">将文件中的<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>变量设置<block ref="5d5e8f80b073e02bba21ac9d801fc018" prefix=" " category="inline-code"></block>为"Destroy"。</block>
   <block id="b09bcceed36b91fd5e644ee4cb5cdf12" category="list-text">导航到文件夹根目录(aws_fs_bTC)、然后发出以下命令。</block>
   <block id="eb4ca443b43911bd41a972146ea8aeb9" category="paragraph">此命令将创建两个容器。第一个容器删除FlexCache、第二个容器删除FSx for ONTAP。</block>
@@ -456,7 +401,6 @@
   <block id="2f061612da9689d76bf56673168e2297" category="list-text">创建目标卷</block>
   <block id="dbb08ca779fd51a560153cc09df81650" category="list-text">在源卷和目标卷之间创建SnapMirror关系</block>
   <block id="eeaef5d40a1542106e9663a57c6482dc" category="list-text">在源卷和目标卷之间启动SnapMirror传输</block>
-  <block id="f71e567e0fe1a0701e68250c9840e0f6" category="list-text">您需要通过BlueXP  Web UI下载<block ref="c208e09af5b3f1aa2f6ca7adecbcd891" category="inline-link-rx"></block>自动化解决方案。该解决方案打包为<block ref="d588083a4963fc0f1cdbef6c659ba457" prefix=" " category="inline-code"></block>。此压缩文件包含<block ref="b0de125824ad7cd9060627a012eaff36" prefix=" " category="inline-code"></block>用于部署本文档所述解决方案的文件。</block>
   <block id="ab09fa6df19fb24ca880041bdb3f02ab" category="list-text">AWS帐户。</block>
   <block id="b2d8334d3cf3b13276df502c705f15fb" category="paragraph">首先检查Linux系统中是否存在组*Docker *。如果不存在、请创建组并添加用户。默认情况下、当前shell用户将添加到组中。</block>
   <block id="7635c17776cd29c2e15ffd362c18e458" category="list-text">将解决方案文件复制<block ref="b0de125824ad7cd9060627a012eaff36" prefix=" " category="inline-code"></block>到要运行自动化代码的虚拟机。</block>
@@ -613,7 +557,6 @@
   <block id="9d0205d1134f0ab28a2874186a12ec34" category="list-text">运行运行状况检查：</block>
   <block id="17c761a11951117029007cd93c65d41a" category="summary">您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTAP集群。</block>
   <block id="ce1b4b763945d110a649a02482fbcfc8" category="doc">ONTAP Day 1解决方案概述</block>
-  <block id="938b95aae63a47e32d020b98cc8da4ee" category="paragraph">您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTAP集群。该解决方案可从获得<block ref="69fc0bc0dbcda94a1b23d119909bded4" category="inline-link-macro-rx"></block>。</block>
   <block id="e702c4fe4e434a01bef1ca713c45f0ed" category="section-title">灵活的ONTAP部署选项</block>
   <block id="2c852cf076c4790c9b25650b6b2701bf" category="paragraph">根据您的要求、您可以使用内部硬件或模拟ONTAP来使用ONTAP部署和配置。</block>
   <block id="1bce5b3d3b7f1e2bd8394a8dc78e10f8" category="paragraph-title">内部硬件</block>
@@ -710,7 +653,6 @@
   <block id="db89a51ffa65529021b510690e81a8f1" category="section-title">下载并准备自动化解决方案</block>
   <block id="861c58cb30aa77b0dee3d8e16d6a86a9" category="paragraph">您可以使用以下步骤下载并准备要部署的自动化解决方案。</block>
   <block id="ab84098f73cfd7f11c2b2ddf36e7b9e0" category="inline-link-macro">ONTAP - Day 1和amp；运行状况检查</block>
-  <block id="f11ca6ee3cd53a97d005c40f2c226b5b" category="list-text">通过BlueXP  Web UI下载<block ref="7d895ad86aecd039f40cc70463ee9858" category="inline-link-macro-rx"></block>自动化解决方案。该解决方案打包为<block ref="aa320f9d69cdf44a5e391cb56d0298cd" prefix=" " category="inline-code"></block>。</block>
   <block id="75286206080ea9682a038a4af04cac12" category="list-text">提取zip文件夹、并将文件复制到您的Ands得以 环境中控制节点上的所需位置。</block>
   <block id="5821bfa4f7dace2f5ba97b23a8e2c2bf" category="section-title">初始的Ands处理 框架配置</block>
   <block id="3c82452c939498e2a377a6c3cbdd7221" category="paragraph">执行Ans担负 框架的初始配置：</block>
@@ -743,9 +685,6 @@
   <block id="8a32f68c174741ac95b09c594c822879" category="inline-link">NetApp IO—酒吧</block>
   <block id="a29fe064588109f2ac8d48595ef06e31" category="list-text"><block ref="a29fe064588109f2ac8d48595ef06e31" category="inline-link-rx"></block></block>
   <block id="eb64ffee348063568d6b0140fbf3af98" category="paragraph">为开发人员和管理员提供支持的博客文章和其他资源。</block>
-  <block id="58bf8b302985815533fd451d770a1b0a" category="section-title">NetApp 云资源</block>
-  <block id="1273c8a63109161e6fd1f18d6998523f" category="inline-link">NetApp BlueXP</block>
-  <block id="a3235da3acacf344734cc119c20ba900" category="list-text"><block ref="a3235da3acacf344734cc119c20ba900" category="inline-link-rx"></block></block>
   <block id="4049649408c78f285cb012e2651847f4" category="paragraph">NetApp 云解决方案的中央站点。</block>
   <block id="654f92d3e3cad866eb53b8787cc67444" category="inline-link">NetApp Cloud Central 控制台</block>
   <block id="1f45f670e1231774c60ec8b4cae95f3a" category="list-text"><block ref="1f45f670e1231774c60ec8b4cae95f3a" category="inline-link-rx"></block></block>
@@ -772,7 +711,6 @@
   <block id="e880c82d33a4250426461e7aa14234c8" category="sidebar">ONTAP Day 1部署</block>
   <block id="0aae180e51442a68c9fbe9225b2bd737" category="sidebar">NetApp产品API</block>
   <block id="253b40ae359ba25b56231803430c4873" category="sidebar">ONTAP</block>
-  <block id="9b9477e579c3b44dd623d5a6e1ea8d78" category="sidebar">BlueXP</block>
   <block id="0165fb1aec27e9e91320972c89c21d7e" category="sidebar">NetApp自动化文档</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">概述</block>
   <block id="03a85053364f989565c431e1f3cb14b6" category="sidebar">突发到云</block>
@@ -786,8 +724,69 @@
   <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">知识和支持</block>
   <block id="4dead70589033e6b1a6f4a83af3f49df" category="list-text">从下载模拟ONTAP<block ref="0a7ec0895e09ff6a921ca23880ce50fd" category="inline-link-macro-rx"></block>。</block>
   <block id="c97ccc1760856d5e84a0b15270e32f34" category="paragraph">您可以使用 REST API 来自动管理Astra Control Service 和Astra Control Center 部署。</block>
-  <block id="3a60d5160ebcf3bb9333d90a2f719786" category="summary">NetApp BlueXP是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，开始实现BlueXP环境的自动化。</block>
-  <block id="513a857b8d360c308601e0ffda7b2d6c" category="paragraph">NetApp BlueXP是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，以开始使用BlueXP REST API 实现BlueXP环境的自动化。</block>
-  <block id="3ef8bda9e27327d6e6b9cd8002846fe4" category="paragraph">您可以使用各种 REST API 来自动管理由BlueXP管理的存储和数据服务。</block>
   <block id="efb294b46ea40d11332e139b2e6bf3f8" category="paragraph">您可以使用 REST API 来自动管理ONTAP部署。</block>
+  <block id="af6996486b8caeb30bbea84944993b2c" category="inline-link">NetApp控制台自动化目录</block>
+  <block id="fdd997fee7acd8cbd879cbec4bdb1ba2" category="paragraph">这<block ref="0af04a4731bfc377dab7b6868d9373ff" category="inline-link-rx"></block>可通过控制台 Web 用户界面访问。自动化目录提供可帮助您自动部署和集成NetApp产品的解决方案。这些解决方案的文档按如下所述的几个不同的产品或功能领域进行组织。</block>
+  <block id="3d95977da954d4141dfd559fa32877b9" category="paragraph-title">Amazon FSx for NetApp ONTAP管理</block>
+  <block id="6468fd1f803cb2e1e029474cd35c6c4b" category="paragraph">提供两种Amazon FSx for NetApp ONTAP管理解决方案，如下所示：</block>
+  <block id="fda668931953c999094ee04029499f03" category="inline-link-macro">Amazon FSx for NetApp ONTAP管理 - 爆发至云端</block>
+  <block id="256c3244dbb2acd605af3c5d6919e4df" category="list-text"><block ref="256c3244dbb2acd605af3c5d6919e4df" category="inline-link-macro-rx"></block></block>
+  <block id="c8c3f2af148cf2bd738ec47dc7776602" category="inline-link-macro">Amazon FSx for NetApp ONTAP管理 - 灾难恢复</block>
+  <block id="a8b3ead95bf3ac8ad23ac11cf7dd784a" category="list-text"><block ref="a8b3ead95bf3ac8ad23ac11cf7dd784a" category="inline-link-macro-rx"></block></block>
+  <block id="f3eac15d41297bbc7fb9e2b3674b89af" category="summary">NetApp Console 是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，以开始使用控制台 REST API 在控制台中实现环境自动化。</block>
+  <block id="0cea3c09aac0804d129d1ee532bea8f4" category="doc">NetApp控制台控制平面</block>
+  <block id="07f2eead2d33f2fa381cc4b011d584ac" category="paragraph-title">NetApp控制台 REST API</block>
+  <block id="2c0a1ae9b1f29915d8b27c60c640ea2b" category="paragraph">您可以使用各种 REST API 来自动化控制台管理的存储和数据服务。</block>
+  <block id="7be2086f13a4f10a02431f16800fa81d" category="inline-link">NetApp控制台 API 文档</block>
+  <block id="6859068aaf02439bf06fb9ddf9871b71" category="list-text"><block ref="6859068aaf02439bf06fb9ddf9871b71" category="inline-link-rx"></block></block>
+  <block id="83d49a34669affcc5fbfbb41da17bd24" category="paragraph-title">NetApp控制台系列</block>
+  <block id="8795e98fca646985b3f7b2564fd30302" category="paragraph">控制台系列文档包含开始使用控制台控制平面所需的一切。</block>
+  <block id="454bb1110d6093b9ef29fd01d063b03f" category="inline-link">NetApp控制台文档</block>
+  <block id="a7d4eac4bbffd2ef934fd1ed39459c2d" category="list-text"><block ref="a7d4eac4bbffd2ef934fd1ed39459c2d" category="inline-link-rx"></block></block>
+  <block id="c9d8fe06b002f40a2555ec7d278de437" category="list-text">您需要下载<block ref="c0eca206aad3ff3b163616e654330c26" category="inline-link-rx"></block>通过NetApp Console Web UI 实现自动化解决方案。该解决方案被打包为文件<block ref="bc18238b0e7defc6245f2b37d9c3bf66" prefix=" " category="inline-code"></block>。</block>
+  <block id="0e630dfa7687bf7f3fd708dd306de881" category="summary">NetApp Console 自动化目录是可供NetApp客户、合作伙伴和员工使用的自动化解决方案的集合。该目录具有多种特点和优点。</block>
+  <block id="2d45463e46d5ee876aec6d3f962e862a" category="doc">NetApp控制台自动化目录概述</block>
+  <block id="a863650eb5700ad464d1641da7bf5f83" category="list-text">您可以访问<block ref="0af04a4731bfc377dab7b6868d9373ff" category="inline-link-rx"></block>通过控制台 Web 用户界面。这为增强NetApp产品和服务的自动化和操作所需的脚本、剧本和模块提供了一个单一位置。</block>
+  <block id="77a987479edef1d356dcc3b58f8eb4c1" category="list-text">每个自动化解决方案都包含相关文档来帮助您入门。虽然可以通过控制台 Web 界面访问解决方案，但所有文档都可以在此站点上找到。该文档是根据NetApp产品和云服务组织的。</block>
+  <block id="f0d00f3d51505f499984ebc90c04e129" category="list-text">NetApp致力于帮助我们的客户改善和简化其数据中心和云环境的自动化。我们希望继续增强控制台自动化目录，以满足客户需求、技术变化和持续的产品集成。</block>
+  <block id="c71150d12b866e437401e547e44c5126" category="summary">本文支持NetApp Cloud Volumes ONTAP for AWS 自动化解决方案， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。</block>
+  <block id="88002d5ebfbbf6ef1618e3f3a1f24040" category="list-text">您必须下载<block ref="8d4964709d0446a3fcc0d1fdace33450" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="4620783dba91696483c654c28ea6a8d7" prefix=" " category="inline-code"></block>。</block>
+  <block id="3fa92c93eb9eba5257cb6c4009abd20a" category="paragraph">在此阶段，您必须创建两个环境变量文件。一个文件用于使用 AWS 访问密钥和密钥对 AWS Resource Manager API 进行身份验证。第二个文件用于设置环境变量，以使控制台 Terraform 模块能够定位和验证 AWS API。</block>
+  <block id="578e33cf7514403f5ee727eb52ff117b" category="section-title">步骤 4：注册NetApp智能服务</block>
+  <block id="3a9162a1dd41f82eb4f6e7242b11328b" category="paragraph">通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费。</block>
+  <block id="9b3c6ec2b91d4544d59dbb94e24bd031" category="list-text">从 Amazon Web Services (AWS) 门户导航到 *SaaS* 并选择 *订阅NetApp智能服务*。</block>
+  <block id="59e3107d7b845c90343a20bb723df1b1" category="list-text">配置NetApp控制台门户以将 SaaS 订阅导入控制台。</block>
+  <block id="7af6acf4ca3e1dde49b11a9a60f53615" category="paragraph">您将被重定向到控制台门户以确认配置。</block>
+  <block id="1c2bb367815d345acc2f4f1561da72bb" category="list-text">通过选择“*保存*”确认控制台门户中的配置。</block>
+  <block id="5cb189644f0e9f7bec5246dafadbe683" category="paragraph">控制台代理和Cloud Volumes ONTAP Terraform 模块的所有支持变量均已在<block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix=" " category="inline-code"></block>文件。您必须引用<block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix=" " category="inline-code"></block>在添加到文件之前<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="cffd524e7584b35b3f234566e787074a" category="paragraph">本文支持适用于 Azure 自动化解决方案的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。</block>
+  <block id="5d09da2277f611b12c1192075edf858b" category="list-text">您必须下载<block ref="30024bb19935ec088c5fad37f3305886" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="c885be86fb876836f2cffef8e6f892c3" prefix=" " category="inline-code"></block>。</block>
+  <block id="9af8b9139ba4d3c38452a4b4dd5dc0ce" category="paragraph">在此阶段，您必须创建两个环境变量文件。一个文件用于使用服务主体凭据对 Azure 资源管理器 API 进行身份验证。第二个文件用于设置环境变量，以使控制台 Terraform 模块能够定位和验证 Azure API。</block>
+  <block id="b5d0f097b58f0a238a973b8883c2b888" category="paragraph">通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费</block>
+  <block id="c145e5d9bbc07a35d9ec4bfcb9189bac" category="list-text">从 Azure 门户导航到 *SaaS* 并选择 *订阅NetApp智能服务*。</block>
+  <block id="f7383b34ae31d953001b610e00da4afd" category="list-text">配置控制台门户以将 SaaS 订阅导入控制台。</block>
+  <block id="6e4df4a505701eef50b1a600fd49dc6f" category="paragraph">然后您将被重定向到控制台门户以确认配置。</block>
+  <block id="fe8a9f9b7bc763f1d154b8734056c819" category="list-text">通过选择“*保存*”确认控制台门户中的配置。</block>
+  <block id="a6943c6b7c16c335ccc7ad97dddf71a4" category="summary">本文支持适用于 Google Cloud Automation Solution 的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp Console Automation Catalog 获取该解决方案。</block>
+  <block id="4f684004fa173b6555307c98c953cfd0" category="list-text">您必须下载<block ref="8c9665e2a194f7858220dd7954b57dbd" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="3122a7091302712dc5048f11784a1882" prefix=" " category="inline-code"></block>。</block>
+  <block id="8250fae01de94ed466e3c7d04c48825b" category="list-text">创建具有部署Cloud Volumes ONTAP和控制台代理权限的服务帐户<block ref="c2b6aba427b8cb58071597c60cc5709a" category="inline-link-macro-rx"></block></block>
+  <block id="21be893a95251ea5e5b664779c01adb9" category="list-text">导航至<block ref="9e380fd6b80c64d2f38ea11babc2a93b" category="inline-link-macro-rx"></block>并选择*订阅NetApp智能服务*。</block>
+  <block id="765e7d187adbd863df2cdfb5e6ca75d2" category="paragraph">您可以直接从 Google Cloud Platform 进行配置。您将被重定向到控制台门户以确认配置。</block>
+  <block id="a5902f6d28779078fd2033b21af7a5fe" category="inline-link-macro">管理NetApp控制台的 Google Cloud 凭据和订阅</block>
+  <block id="092cea67c08613cf048bf190eaa71adb" category="paragraph">有关更多信息，请参阅<block ref="7a47356fff5456ec64ad7c1ac9f50d74" category="inline-link-macro-rx"></block> 。</block>
+  <block id="2da82512d73d9b6cbf45b974feb24e0f" category="paragraph">您必须在项目中启用以下 Google Cloud API 才能部署Cloud Volumes ONTAP和控制台代理。</block>
+  <block id="1e9db9ceda11b564a3d8eb4a06e57595" category="summary">您可以使用此自动化解决方案Amazon FSx for NetApp ONTAP以及卷和相关的FlexCache。</block>
+  <block id="007f9323bc46fec8d38ceae5f437e2af" category="admonition">Amazon FSx for NetApp ONTAP管理也称为 *FSx for ONTAP*。</block>
+  <block id="7f8cb6c6ad55db1cd033ece1fd1d6a27" category="list-text">您需要下载<block ref="360cb584134d217c34d7d9dd80a33794" category="inline-link-rx"></block>通过NetApp Console Web UI 实现自动化解决方案。该解决方案被打包为文件<block ref="e2e5a273eb632b27931109b94363bfa4" prefix=" " category="inline-code"></block>。</block>
+  <block id="505987e29e139a576f9ef0ae72ba89a4" category="section-title">步骤 6：Amazon FSx for NetApp ONTAP管理和FlexCache配置 Amazon FSx</block>
+  <block id="86c2fdb4fcf9450dcebc9160b75d70bb" category="paragraph">您可以为 NetApp ONTAP 管理和FlexCache配置Amazon FSx for NetApp ONTAP 。</block>
+  <block id="08dea8fb94807c4f762b718af62510d0" category="section-title">步骤 7：销毁Amazon FSx for NetApp ONTAP管理和FlexCache</block>
+  <block id="9b019a95fc261f81937d33bb7349e670" category="paragraph">您可以选择删除和​​移除Amazon FSx for NetApp ONTAP管理和FlexCache。</block>
+  <block id="edfb5e5fa19c2260107795cbfcfec622" category="paragraph">您可以使用此自动化解决方案通过Amazon FSx for NetApp ONTAP管理对源系统进行灾难恢复备份。</block>
+  <block id="434c5de57e421ba3594a568fd0ac2e16" category="list-text">您需要下载<block ref="2b8b09ed964048a68a2657989a42ba67" category="inline-link-rx"></block>通过NetApp Console Web UI 实现自动化解决方案。该解决方案打包为<block ref="d588083a4963fc0f1cdbef6c659ba457" prefix=" " category="inline-code"></block>。此 zip 文件包含<block ref="b0de125824ad7cd9060627a012eaff36" prefix=" " category="inline-code"></block>您将使用该文件来部署本文档中描述的解决方案。</block>
+  <block id="7411537245439e8c6d286dcf831b826f" category="paragraph">您可以使用ONTAP day 0/1 自动化解决方案通过 Ansible 部署和配置ONTAP集群。解决方案可从<block ref="0d4e77b878442b39098e894ab0c6a48e" category="inline-link-macro-rx"></block>。</block>
+  <block id="fe12db6b630ceddf95e6db88b6730521" category="list-text">下载<block ref="7688e8be8ea1bcdb330dce59b08c482c" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="aa320f9d69cdf44a5e391cb56d0298cd" prefix=" " category="inline-code"></block>。</block>
+  <block id="3eb506ace636162f6ec3f2f1c72a6baa" category="section-title">NetApp控制台资源</block>
+  <block id="3c031b939f6ec312ee601d021e7a6644" category="inline-link">NetApp控制台</block>
+  <block id="fe4d24027a89af24b4596cabe21c2140" category="list-text"><block ref="fe4d24027a89af24b4596cabe21c2140" category="inline-link-rx"></block></block>
 </blocks>

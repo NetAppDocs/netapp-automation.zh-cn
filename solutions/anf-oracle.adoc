@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/anf-oracle.html 
-keywords: bluexp automation catalog, netapp automation solutions, azure, azure netapp files, oracle 
+keywords: bluexp automation catalog, netapp automation solutions, azure, azure netapp files, oracle, console 
 summary: 您可以使用此自动化解决方案配置Azure NetApp Files卷并在可用虚拟机上安装Oracle。然后、Oracle会使用这些卷进行数据存储。 
 ---
 = 使用Azure NetApp Files安装Oracle
@@ -34,7 +34,7 @@ summary: 您可以使用此自动化解决方案配置Azure NetApp Files卷并�
 .开始之前
 要完成安装、您必须满足以下条件：
 
-* 您需要通过BlueXP  Web UI下载 https://console.bluexp.netapp.com/automationCatalog["使用Azure NetApp Files的Oracle"^]自动化解决方案。该解决方案打包为file `na_oracle19c_deploy-master.zip`。
+* 您需要下载 https://console.netapp.com/automationCatalog["使用Azure NetApp Files的Oracle"^]通过NetApp Console Web UI 实现自动化解决方案。该解决方案被打包为文件 `na_oracle19c_deploy-master.zip`。
 * 具有以下特征的Linux VM：
 +
 ** RHEL 8 (Standard"(标准) D8s_v3-rRHEL 8)

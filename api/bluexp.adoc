@@ -1,29 +1,9 @@
 ---
 sidebar: sidebar 
 permalink: api/bluexp.html 
-keywords: netapp products, product api, rest, rest api, bluexp, bluexp control plane 
-summary: NetApp BlueXP是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，开始实现BlueXP环境的自动化。 
+redirect: netapp-automation/api/netapp-console.html 
 ---
-= BlueXP  控制平台
-:hardbreaks:
+= 
 :allow-uri-read: 
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ./media/
 
-
-[role="lead"]
-NetApp BlueXP是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，以开始使用BlueXP REST API 实现BlueXP环境的自动化。
-
-.BlueXP  REST API
-您可以使用各种 REST API 来自动管理由BlueXP管理的存储和数据服务。
-
-* https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API文档"^]
-
-
-.BlueXP  系列
-BlueXP  系列文档包含开始使用BlueXP  控制平台所需的所有内容。
-
-* https://docs.netapp.com/us-en/bluexp-family/["BlueXP文档"^]
 

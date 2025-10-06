@@ -32,9 +32,9 @@ summary: 您可以访问其他资源来获取帮助、并查找有关NetApp产�
 
 
 
-== NetApp 云资源
+== NetApp控制台资源
 
-* https://bluexp.netapp.com/["NetApp BlueXP"^]
+* https://console.netapp.com/["NetApp控制台"^]
 +
 NetApp 云解决方案的中央站点。
 

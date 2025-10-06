@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: solutions/fsxn-burst-to-cloud.html 
-keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud 
-summary: 您可以使用此自动化解决方案为包含卷和关联FlexCache的NetApp ONTAP配置Amazon FSx。 
+keywords: bluexp automation catalog, netapp automation solutions, fsx for ontap, burst to cloud, netapp console 
+summary: 您可以使用此自动化解决方案Amazon FSx for NetApp ONTAP以及卷和相关的FlexCache。 
 ---
-= Amazon FSx for NetApp ONTAP—突发到云
+= Amazon FSx for NetApp ONTAP管理 - 爆发至云端
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,10 +14,10 @@ summary: 您可以使用此自动化解决方案为包含卷和关联FlexCache�
 
 
 [role="lead"]
-您可以使用此自动化解决方案为包含卷和关联FlexCache的NetApp ONTAP配置Amazon FSx。
+您可以使用此自动化解决方案Amazon FSx for NetApp ONTAP以及卷和相关的FlexCache。
 
 
-NOTE: Amazon FSx for NetApp ONTAP也称为*FSx for ONTAP。
+NOTE: Amazon FSx for NetApp ONTAP管理也称为 *FSx for ONTAP*。
 
 .关于该解决方案
 概括地说、此解决方案提供的自动化代码将执行以下操作：
@@ -35,7 +35,7 @@ NOTE: Amazon FSx for NetApp ONTAP也称为*FSx for ONTAP。
 .开始之前
 要完成配置和配置、您必须满足以下条件：
 
-* 您需要通过BlueXP  Web UI下载 https://console.bluexp.netapp.com/automationCatalog["Amazon FSx for NetApp ONTAP—突发到云"^]自动化解决方案。该解决方案打包为file `AWS_FSxN_BTC.zip`。
+* 您需要下载 https://console.netapp.com/automationCatalog["Amazon FSx for NetApp ONTAP管理 - 爆发至云端"^]通过NetApp Console Web UI 实现自动化解决方案。该解决方案被打包为文件 `AWS_FSxN_BTC.zip`。
 * 源系统和目标系统之间的网络连接。
 * 具有以下特征的Linux VM：
 +
@@ -239,9 +239,9 @@ PERSISTENT_VOL=aws_fsxn_volume:/aws_fsxn_flexcache
 
 
 
-== 第6步：为NetApp ONTAP和FlexCache配置Amazon FSx
+== 步骤 6：Amazon FSx for NetApp ONTAP管理和FlexCache配置 Amazon FSx
 
-您可以为NetApp ONTAP和FlexCache配置Amazon FSx。
+您可以为 NetApp ONTAP 管理和FlexCache配置Amazon FSx for NetApp ONTAP 。
 
 .步骤
 . 导航到文件夹根目录(aws_fs_bTC)、然后发出配置命令。
@@ -266,9 +266,9 @@ docker-compose -f docker-compose-provision.yml logs -f
 
 
 
-== 第7步：销毁Amazon FSx for NetApp ONTAP和FlexCache
+== 步骤 7：销毁Amazon FSx for NetApp ONTAP管理和FlexCache
 
-您可以选择删除和删除Amazon FSx for NetApp ONTAP和FlexCache。
+您可以选择删除和​​移除Amazon FSx for NetApp ONTAP管理和FlexCache。
 
 . 将文件中的 `terraform.tfvars`变量设置 `flexcache_operation`为"Destroy"。
 . 导航到文件夹根目录(aws_fs_bTC)、然后发出以下命令。

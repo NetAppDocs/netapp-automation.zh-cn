@@ -30,13 +30,13 @@ NetApp会定期更新自动化解决方案、产品REST API和相关软件、为
 
 == 2023年6月4日
 
-可通过BlueXP  Web用户界面访问NetApp https://console.bluexp.netapp.com/automationCatalog["BlueXP自动化目录"^]。通过自动化目录、您可以访问可帮助您自动部署和集成NetApp产品的解决方案。这些解决方案的文档分为几个不同的产品或功能领域、如下所述。
+这 https://console.netapp.com/automationCatalog["NetApp控制台自动化目录"^]可通过控制台 Web 用户界面访问。自动化目录提供可帮助您自动部署和集成NetApp产品的解决方案。这些解决方案的文档按如下所述的几个不同的产品或功能领域进行组织。
 
-.适用于 NetApp ONTAP 的 Amazon FSX
-提供了两个Amazon FSx for NetApp ONTAP解决方案、如下所示：
+.Amazon FSx for NetApp ONTAP管理
+提供两种Amazon FSx for NetApp ONTAP管理解决方案，如下所示：
 
-* link:../solutions/fsxn-burst-to-cloud.html["Amazon FSx for NetApp ONTAP—突发到云"]
-* link:../solutions/fsxn-disaster-recovery.html["Amazon FSx for NetApp ONTAP—灾难恢复"]
+* link:../solutions/fsxn-burst-to-cloud.html["Amazon FSx for NetApp ONTAP管理 - 爆发至云端"]
+* link:../solutions/fsxn-disaster-recovery.html["Amazon FSx for NetApp ONTAP管理 - 灾难恢复"]
 
 
 .Azure NetApp Files

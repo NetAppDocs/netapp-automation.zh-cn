@@ -9,7 +9,7 @@ indexpage:
     links:
     - title: 新增功能
       url: "/about/whats-new.html"
-    - title: BlueXP自动化目录
+    - title: NetApp控制台自动化目录
       url: "/solutions/bac-overview.html"
     - title: 其他资源
       url: "/support/additional-resources.html"
@@ -25,8 +25,8 @@ indexpage:
     links:
     - title: ONTAP
       url: "/api/ontap.html"
-    - title: BlueXP
-      url: "/api/bluexp.html"
+    - title: NetApp控制台
+      url: "/api/netapp-console.html"
     - title: Astra Control
       url: "/api/astra.html"
     - title: Active IQ Unified Manager

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/cvo-azure-burst-to-cloud.html 
-keywords: bluexp automation catalog, netapp automation solutions, azure, cloud volumes ontap, burst to cloud 
+keywords: bluexp automation catalog, netapp automation solutions, azure, cloud volumes ontap, burst to cloud. netapp, console 
 summary: 您可以使用此自动化解决方案使用Terraform部署Cloud Volumes ONTAP for Azure。 
 ---
 = 适用于Azure的Cloud Volumes ONTAP—突发到云
@@ -14,12 +14,12 @@ summary: 您可以使用此自动化解决方案使用Terraform部署Cloud Volum
 
 
 [role="lead"]
-本文支持适用于Azure的NetApp Cloud Volumes ONTAP自动化解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。
+本文支持适用于 Azure 自动化解决方案的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。
 
 适用于Azure的Cloud Volumes ONTAP自动化解决方案使用Terraform自动执行适用于Azure的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于Azure的Cloud Volumes ONTAP。
 
 .开始之前
-* 您必须通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["Cloud Volumes ONTAP Azure—突发到云"^]自动化解决方案。该解决方案打包为 `CVO-Azure-Burst-To-Cloud.zip`。
+* 您必须下载link:https://console.netapp.com/automationCatalog["Cloud Volumes ONTAP Azure—突发到云"^]通过控制台 Web UI 实现自动化解决方案。该解决方案打包为 `CVO-Azure-Burst-To-Cloud.zip`。
 * 您必须在与Cloud Volumes ONTAP相同的网络上安装Linux VM。
 * 安装Linux VM后、必须按照本解决方案中的步骤安装所需的依赖项。
 
@@ -179,7 +179,7 @@ cvo_azure_flexcache_ubuntu_image latest 18db15a4d59c 2 weeks ago 1.14GB
 
 == 第3步：创建环境变量文件
 
-在此阶段、您必须创建两个环境变量文件。其中一个文件用于使用服务主体凭据对Azure Resource Manager API进行身份验证。第二个文件用于设置环境变量、以使BlueXP  Terraform模块能够找到Azure API并对其进行身份验证。
+在此阶段，您必须创建两个环境变量文件。一个文件用于使用服务主体凭据对 Azure 资源管理器 API 进行身份验证。第二个文件用于设置环境变量，以使控制台 Terraform 模块能够定位和验证 Azure API。
 
 .步骤
 . 创建服务主体。
@@ -255,24 +255,24 @@ Azue_租 户ID=<>Azue_client_SECLE=<>Azue_client_ID=<>Azue_Probation_ID=<>
 
 
 
-== 第4步：将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅BlueXP 
+== 步骤 4：注册NetApp智能服务
 
-您可以将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅Azure Marketplace中的NetApp BlueXP 。
+通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费
 
 .步骤
-. 在Azure门户中、导航到* SaaS *并选择*订阅NetApp BlueXP *。
+. 从 Azure 门户导航到 *SaaS* 并选择 *订阅NetApp智能服务*。
 . 选择*云管理器(按小时、WORM和数据服务划分的容量PYGO)*计划。
 +
 您可以使用与Cloud Volumes ONTAP相同的资源组，也可以使用不同的资源组。
 
-. 配置BlueXP  门户以将SaaS订阅导入到BlueXP 。
+. 配置控制台门户以将 SaaS 订阅导入控制台。
 +
 您可以通过导航到*产品和计划详细信息*并选择*立即配置帐户*选项、直接从Azure门户配置此帐户。
 
 +
-然后、您将重定向到BlueXP  门户以确认配置。
+然后您将被重定向到控制台门户以确认配置。
 
-. 选择*保存*，确认BlueXP  门户中的配置。
+. 通过选择“*保存*”确认控制台门户中的配置。
 
 
 
@@ -344,7 +344,7 @@ docker volume create cvo_azure_volume_dst
 修改文件中的任何变量值时、您必须阅读特定的支持文档 `terraform.tfvars`。根据地区、可用性区域以及适用于Azure的Cloud Volumes ONTAP支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。
 
 +
-文件中已定义连接器和Cloud Volumes ONTAP Terraform模块的所有支持变量 `variables.tf`。在添加到文件之前、必须引用文件 `terraform.tfvars`中的变量名称 `variables.tf`。
+控制台代理和Cloud Volumes ONTAP Terraform 模块的所有支持变量均已在 `variables.tf`文件。您必须引用 `variables.tf`在添加到文件之前 `terraform.tfvars`文件。
 
 . 根据您的要求，您可以通过将以下选项设置为或来启用或 `false`禁用FlexCache和FlexClone `true`。
 +

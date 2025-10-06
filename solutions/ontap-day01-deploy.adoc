@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/ontap-day01-deploy.html 
-keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, deploy 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, deploy, netapp console 
 summary: 完成准备和规划后、您便可以使用ONTAP Day 1解决方案使用ONTAP来快速配置使用Ans得 集群了。 
 ---
 = 使用该解决方案部署ONTAP集群

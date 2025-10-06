@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/ontap-day01-customize.html 
-keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, customize, add roles 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, customize, add roles, netapp console 
 summary: 要根据您的需求自定义ONTAP Day 1解决方案、您可以添加或更改Ands还是 角色。 
 ---
 = 定制ONTAP Day 1解决方案

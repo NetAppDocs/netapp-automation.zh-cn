@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: solutions/cvo-gcp-burst-to-cloud.html 
-keywords: bluexp automation catalog, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud 
-summary: 本文支持适用于Google云自动化的NetApp Cloud Volumes ONTAP解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。 
+keywords: bluexp automation catalog, netapp automation solutions, gcp, cloud volumes ontap, burst to cloud, netapp, console 
+summary: 本文支持适用于 Google Cloud Automation Solution 的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp Console Automation Catalog 获取该解决方案。 
 ---
 = 适用于Google Cloud的Cloud Volumes ONTAP—突发到云
 :hardbreaks:
@@ -14,12 +14,12 @@ summary: 本文支持适用于Google云自动化的NetApp Cloud Volumes ONTAP解
 
 
 [role="lead"]
-本文支持适用于Google云自动化的NetApp Cloud Volumes ONTAP解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录获得。
+本文支持适用于 Google Cloud Automation Solution 的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp Console Automation Catalog 获取该解决方案。
 
 适用于Google Cloud的Cloud Volumes ONTAP自动化解决方案可自动执行适用于Google Cloud的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于Google Cloud的Cloud Volumes ONTAP。
 
 .开始之前
-* 您必须通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["适用于Google Cloud的Cloud Volumes ONTAP—突发到云"^]自动化解决方案。该解决方案打包为 `cvo_gcp_flexcache.zip`。
+* 您必须下载link:https://console.netapp.com/automationCatalog["适用于Google Cloud的Cloud Volumes ONTAP—突发到云"^]通过控制台 Web UI 实现自动化解决方案。该解决方案打包为 `cvo_gcp_flexcache.zip`。
 * 您必须在与Cloud Volumes ONTAP相同的网络上安装Linux VM。
 * 安装Linux VM后、必须按照本解决方案中的步骤安装所需的依赖项。
 
@@ -184,7 +184,7 @@ NOTE: 您可以根据需要更改Docker映像名称。如果更改Docker映像�
 
 在此阶段、您必须使用服务帐户密钥更新此 `cxo-automation-gcp.json`文件、以便对Google Cloud提供程序进行身份验证。
 
-. 创建一个具有部署Cloud Volumes ONTAP和BlueXP  连接器权限的服务帐户。link:https://cloud.google.com/iam/docs/service-accounts-create["了解有关创建服务帐户的更多信息。"^]
+. 创建具有部署Cloud Volumes ONTAP和控制台代理权限的服务帐户link:https://cloud.google.com/iam/docs/service-accounts-create["了解有关创建服务帐户的更多信息。"^]
 . 下载帐户的密钥文件并使用密钥文件信息更新此 `cxo-automation-gcp.json`文件。 `cxo-automation-gcp.json`文件位于文件夹中 `cvo_gcp_variables`。
 +
 .示例
@@ -211,26 +211,26 @@ NOTE: 您可以根据需要更改Docker映像名称。如果更改Docker映像�
 
 
 
-== 第4步：订阅BlueXP 
+== 步骤 4：注册NetApp智能服务
 
-您可以在Google云市场中订阅NetApp BlueXP 。
+通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费。
 
 .步骤
-. 导航到link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Google Cloud控制台"^]并选择*订阅NetApp BlueXP *。
-. 配置BlueXP  门户以将SaaS订阅导入到BlueXP 。
+. 导航至link:https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Google Cloud控制台"^]并选择*订阅NetApp智能服务*。
+. 配置NetApp控制台门户以将 SaaS 订阅导入控制台。
 +
-您可以直接从Google Cloud Platform配置此功能。系统将重定向到BlueXP  门户以确认配置。
+您可以直接从 Google Cloud Platform 进行配置。您将被重定向到控制台门户以确认配置。
 
-. 选择*保存*，确认BlueXP  门户中的配置。
+. 通过选择“*保存*”确认控制台门户中的配置。
 
 
-有关详细信息，请参见 link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html#associate-a-marketplace-subscription-with-google-cloud-credentials["管理BlueXP的Google Cloud凭据和订阅"^]。
+有关更多信息，请参阅link:https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html#associate-a-marketplace-subscription-with-google-cloud-credentials["管理NetApp控制台的 Google Cloud 凭据和订阅"^] 。
 
 
 
 == 第5步：启用所需的Google Cloud API
 
-要部署Cloud Volumes ONTAP和连接器、您必须在项目中启用以下Google Cloud API。
+您必须在项目中启用以下 Google Cloud API 才能部署Cloud Volumes ONTAP和控制台代理。
 
 * Cloud Deployment Manager V2 API
 * 云日志记录 API
@@ -309,7 +309,7 @@ docker volume create cvo_gcp_volume_dst
 修改文件中的任何变量值时、您必须阅读特定的支持文档 `terraform.tfvars`。根据地区、可用性区域以及适用于Google Cloud的Cloud Volumes ONTAP支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。
 
 +
-文件中已定义连接器和Cloud Volumes ONTAP Terraform模块的所有支持变量 `variables.tf`。在添加到文件之前、必须引用文件 `terraform.tfvars`中的变量名称 `variables.tf`。
+控制台代理和Cloud Volumes ONTAP Terraform 模块的所有支持变量均已在 `variables.tf`文件。您必须引用 `variables.tf`在添加到文件之前 `terraform.tfvars`文件。
 
 . 根据您的要求，您可以通过将以下选项设置为或来启用或 `false`禁用FlexCache和FlexClone `true`。
 +

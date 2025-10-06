@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: solutions/cvo-aws-burst-to-cloud.html 
 keywords: bluexp automation catalog, netapp automation solutions, aws, cloud volumes ontap, burst to cloud 
-summary: 本文支持适用于AWS的NetApp Cloud Volumes ONTAP自动化解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录中获取。 
+summary: 本文支持NetApp Cloud Volumes ONTAP for AWS 自动化解决方案， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。 
 ---
 = 适用于AWS的Cloud Volumes ONTAP—突发到云
 :hardbreaks:
@@ -14,12 +14,12 @@ summary: 本文支持适用于AWS的NetApp Cloud Volumes ONTAP自动化解决方
 
 
 [role="lead"]
-本文支持适用于AWS的NetApp Cloud Volumes ONTAP自动化解决方案、该解决方案可供NetApp客户从BlueXP  自动化目录中获取。
+本文支持NetApp Cloud Volumes ONTAP for AWS 自动化解决方案， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。
 
 适用于AWS的Cloud Volumes ONTAP自动化解决方案可使用Terraform自动执行适用于AWS的Cloud Volumes ONTAP容器化部署、让您无需任何手动干预即可快速部署适用于AWS的Cloud Volumes ONTAP。
 
 .开始之前
-* 您必须通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["Cloud Volumes ONTAP AWS—突发到云"^]自动化解决方案。该解决方案打包为 `cvo_aws_flexcache.zip`。
+* 您必须下载link:https://console.netapp.com/automationCatalog["Cloud Volumes ONTAP AWS—突发到云"^]通过控制台 Web UI 实现自动化解决方案。该解决方案打包为 `cvo_aws_flexcache.zip`。
 * 您必须在与Cloud Volumes ONTAP相同的网络上安装Linux VM。
 * 安装Linux VM后、必须按照本解决方案中的步骤安装所需的依赖项。
 
@@ -182,7 +182,7 @@ NOTE: 您可以根据需要更改Docker映像名称。如果更改Docker映像�
 
 == 第3步：创建环境变量文件
 
-在此阶段、您必须创建两个环境变量文件。其中一个文件用于使用AWS访问密钥和机密密钥对AWS Resource Manager API进行身份验证。第二个文件用于设置环境变量、以使BlueXP  Terraform模块能够找到AWS API并对其进行身份验证。
+在此阶段，您必须创建两个环境变量文件。一个文件用于使用 AWS 访问密钥和密钥对 AWS Resource Manager API 进行身份验证。第二个文件用于设置环境变量，以使控制台 Terraform 模块能够定位和验证 AWS API。
 
 .步骤
 . 在以下位置创建 `awsauth.env`文件：
@@ -220,23 +220,23 @@ aws_access_key_id <>aws_key_access_key=<>
 
 
 
-== 第4步：将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅BlueXP 
+== 步骤 4：注册NetApp智能服务
 
-您可以将Cloud Volumes ONTAP许可证添加到BlueXP  或订阅AWS Marketplace中的NetApp BlueXP 。
+通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费。
 
 .步骤
-. 在AWS门户中、导航到* SaaS *并选择*订阅NetApp BlueXP *。
+. 从 Amazon Web Services (AWS) 门户导航到 *SaaS* 并选择 *订阅NetApp智能服务*。
 +
 您可以使用与Cloud Volumes ONTAP相同的资源组，也可以使用不同的资源组。
 
-. 配置BlueXP  门户以将SaaS订阅导入到BlueXP 。
+. 配置NetApp控制台门户以将 SaaS 订阅导入控制台。
 +
 您可以直接从AWS门户配置此配置。
 
 +
-系统会将您重定向到BlueXP  门户以确认配置。
+您将被重定向到控制台门户以确认配置。
 
-. 选择*保存*，确认BlueXP  门户中的配置。
+. 通过选择“*保存*”确认控制台门户中的配置。
 
 
 
@@ -307,7 +307,7 @@ docker volume create cvo_aws_volume_dst
 修改文件中的任何变量值时、您必须阅读特定的支持文档 `terraform.tfvars`。根据地区、可用性区域以及Cloud Volumes ONTAP for AWS支持的其他因素、这些值可能会有所不同。其中包括单个节点和高可用性(HA)对的许可证、磁盘大小和VM大小。
 
 +
-文件中已定义连接器和Cloud Volumes ONTAP Terraform模块的所有支持变量 `variables.tf`。在添加到文件之前、必须引用文件 `terraform.tfvars`中的变量名称 `variables.tf`。
+控制台代理和Cloud Volumes ONTAP Terraform 模块的所有支持变量均已在 `variables.tf`文件。您必须引用 `variables.tf`在添加到文件之前 `terraform.tfvars`文件。
 
 . 根据您的要求，您可以通过将以下选项设置为或来启用或 `false`禁用FlexCache和FlexClone `true`。
 +

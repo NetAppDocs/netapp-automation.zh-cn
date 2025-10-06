@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/ontap-day01-prepare.html 
-keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, prepare, netapp console 
 summary: 在部署自动化解决方案之前、您必须准备ONTAP环境并安装和配置Ans得。 
 ---
 = 准备使用ONTAP Day 1解决方案
@@ -133,7 +133,7 @@ NOTE: 必须在系统的控制节点上安装有Ans得。
 
 您可以使用以下步骤下载并准备要部署的自动化解决方案。
 
-. 通过BlueXP  Web UI下载link:https://console.bluexp.netapp.com/automationCatalog["ONTAP - Day 1和amp；运行状况检查"^]自动化解决方案。该解决方案打包为 `ONTAP_DAY0_DAY1.zip`。
+. 下载link:https://console.netapp.com/automationCatalog["ONTAP - Day 1和amp；运行状况检查"^]通过控制台 Web UI 实现自动化解决方案。该解决方案打包为 `ONTAP_DAY0_DAY1.zip`。
 . 提取zip文件夹、并将文件复制到您的Ands得以 环境中控制节点上的所需位置。
 
 

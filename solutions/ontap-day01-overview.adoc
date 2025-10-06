@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: solutions/ontap-day01-overview.html 
-keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, overview, introduction 
+keywords: bluexp automation catalog, netapp automation solutions, ontap day 0/1, overview, introduction, netapp console 
 summary: 您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTAP集群。 
 ---
 = ONTAP Day 1解决方案概述
@@ -14,7 +14,7 @@ summary: 您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTA
 
 
 [role="lead"]
-您可以使用Day 1自动化解决方案使用ONTAP部署和配置ONTAP集群。该解决方案可从获得link:https://console.bluexp.netapp.com/automationCatalog["BlueXP自动化目录"^]。
+您可以使用ONTAP day 0/1 自动化解决方案通过 Ansible 部署和配置ONTAP集群。解决方案可从link:https://console.netapp.com/automationCatalog["NetApp控制台自动化目录"^]。
 
 
 

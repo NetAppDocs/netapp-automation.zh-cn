@@ -1,10 +1,10 @@
 ---
 section: solutions
-title: BlueXP自动化目录
+title: NetApp控制台自动化目录
 entries:
 - title: 概述
   url: "/solutions/bac-overview.html"
-- title: 适用于 NetApp ONTAP 的 Amazon FSX
+- title: Amazon FSx for NetApp ONTAP管理
   entries:
   - title: 突发到云
     url: "/solutions/fsxn-burst-to-cloud.html"

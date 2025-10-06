@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: api/netapp-console.html 
+keywords: netapp products, product api, rest, rest api, bluexp, bluexp control plane, netapp, console 
+summary: NetApp Console 是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，以开始使用控制台 REST API 在控制台中实现环境自动化。 
+---
+= NetApp控制台控制平面
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console 是一个统一的控制平面，它提供了一个混合多云平台，用于管理本地和公共云环境中的存储和数据服务。它由几个不同的服务或组件组成，每个服务或组件都公开一个相关的 REST API。请参阅下面提供的文档和相关资源，以开始使用控制台 REST API 在控制台中实现环境自动化。
+
+.NetApp控制台 REST API
+您可以使用各种 REST API 来自动化控制台管理的存储和数据服务。
+
+* https://docs.netapp.com/us-en/console-automation/["NetApp控制台 API 文档"^]
+
+
+.NetApp控制台系列
+控制台系列文档包含开始使用控制台控制平面所需的一切。
+
+* https://docs.netapp.com/us-en/console-family/["NetApp控制台文档"^]
+
