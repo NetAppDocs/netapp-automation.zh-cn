@@ -30,7 +30,7 @@ NetApp会定期更新自动化解决方案、产品REST API和相关软件、为
 
 == 2023年6月4日
 
-这 https://console.netapp.com/automationCatalog["NetApp控制台自动化目录"^]可通过控制台 Web 用户界面访问。自动化目录提供可帮助您自动部署和集成NetApp产品的解决方案。这些解决方案的文档按如下所述的几个不同的产品或功能领域进行组织。
+这 https://console.netapp.com/automationHub["NetApp Console自动化中心"^] 可通过控制台 Web 用户界面访问。自动化中心提供各种解决方案，可帮助您自动部署和集成NetApp产品。这些解决方案的文档按以下所述的几个不同的产品或功能领域进行组织。
 
 .Amazon FSx for NetApp ONTAP管理
 提供两种Amazon FSx for NetApp ONTAP管理解决方案，如下所示：

@@ -725,8 +725,6 @@
   <block id="4dead70589033e6b1a6f4a83af3f49df" category="list-text">从下载模拟ONTAP<block ref="0a7ec0895e09ff6a921ca23880ce50fd" category="inline-link-macro-rx"></block>。</block>
   <block id="c97ccc1760856d5e84a0b15270e32f34" category="paragraph">您可以使用 REST API 来自动管理Astra Control Service 和Astra Control Center 部署。</block>
   <block id="efb294b46ea40d11332e139b2e6bf3f8" category="paragraph">您可以使用 REST API 来自动管理ONTAP部署。</block>
-  <block id="af6996486b8caeb30bbea84944993b2c" category="inline-link">NetApp控制台自动化目录</block>
-  <block id="fdd997fee7acd8cbd879cbec4bdb1ba2" category="paragraph">这<block ref="0af04a4731bfc377dab7b6868d9373ff" category="inline-link-rx"></block>可通过控制台 Web 用户界面访问。自动化目录提供可帮助您自动部署和集成NetApp产品的解决方案。这些解决方案的文档按如下所述的几个不同的产品或功能领域进行组织。</block>
   <block id="3d95977da954d4141dfd559fa32877b9" category="paragraph-title">Amazon FSx for NetApp ONTAP管理</block>
   <block id="6468fd1f803cb2e1e029474cd35c6c4b" category="paragraph">提供两种Amazon FSx for NetApp ONTAP管理解决方案，如下所示：</block>
   <block id="fda668931953c999094ee04029499f03" category="inline-link-macro">Amazon FSx for NetApp ONTAP管理 - 爆发至云端</block>
@@ -743,14 +741,7 @@
   <block id="8795e98fca646985b3f7b2564fd30302" category="paragraph">控制台系列文档包含开始使用控制台控制平面所需的一切。</block>
   <block id="454bb1110d6093b9ef29fd01d063b03f" category="inline-link">NetApp控制台文档</block>
   <block id="a7d4eac4bbffd2ef934fd1ed39459c2d" category="list-text"><block ref="a7d4eac4bbffd2ef934fd1ed39459c2d" category="inline-link-rx"></block></block>
-  <block id="c9d8fe06b002f40a2555ec7d278de437" category="list-text">您需要下载<block ref="c0eca206aad3ff3b163616e654330c26" category="inline-link-rx"></block>通过NetApp Console Web UI 实现自动化解决方案。该解决方案被打包为文件<block ref="bc18238b0e7defc6245f2b37d9c3bf66" prefix=" " category="inline-code"></block>。</block>
-  <block id="0e630dfa7687bf7f3fd708dd306de881" category="summary">NetApp Console 自动化目录是可供NetApp客户、合作伙伴和员工使用的自动化解决方案的集合。该目录具有多种特点和优点。</block>
-  <block id="2d45463e46d5ee876aec6d3f962e862a" category="doc">NetApp控制台自动化目录概述</block>
-  <block id="a863650eb5700ad464d1641da7bf5f83" category="list-text">您可以访问<block ref="0af04a4731bfc377dab7b6868d9373ff" category="inline-link-rx"></block>通过控制台 Web 用户界面。这为增强NetApp产品和服务的自动化和操作所需的脚本、剧本和模块提供了一个单一位置。</block>
   <block id="77a987479edef1d356dcc3b58f8eb4c1" category="list-text">每个自动化解决方案都包含相关文档来帮助您入门。虽然可以通过控制台 Web 界面访问解决方案，但所有文档都可以在此站点上找到。该文档是根据NetApp产品和云服务组织的。</block>
-  <block id="f0d00f3d51505f499984ebc90c04e129" category="list-text">NetApp致力于帮助我们的客户改善和简化其数据中心和云环境的自动化。我们希望继续增强控制台自动化目录，以满足客户需求、技术变化和持续的产品集成。</block>
-  <block id="c71150d12b866e437401e547e44c5126" category="summary">本文支持NetApp Cloud Volumes ONTAP for AWS 自动化解决方案， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。</block>
-  <block id="88002d5ebfbbf6ef1618e3f3a1f24040" category="list-text">您必须下载<block ref="8d4964709d0446a3fcc0d1fdace33450" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="4620783dba91696483c654c28ea6a8d7" prefix=" " category="inline-code"></block>。</block>
   <block id="3fa92c93eb9eba5257cb6c4009abd20a" category="paragraph">在此阶段，您必须创建两个环境变量文件。一个文件用于使用 AWS 访问密钥和密钥对 AWS Resource Manager API 进行身份验证。第二个文件用于设置环境变量，以使控制台 Terraform 模块能够定位和验证 AWS API。</block>
   <block id="578e33cf7514403f5ee727eb52ff117b" category="section-title">步骤 4：注册NetApp智能服务</block>
   <block id="3a9162a1dd41f82eb4f6e7242b11328b" category="paragraph">通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费。</block>
@@ -759,16 +750,12 @@
   <block id="7af6acf4ca3e1dde49b11a9a60f53615" category="paragraph">您将被重定向到控制台门户以确认配置。</block>
   <block id="1c2bb367815d345acc2f4f1561da72bb" category="list-text">通过选择“*保存*”确认控制台门户中的配置。</block>
   <block id="5cb189644f0e9f7bec5246dafadbe683" category="paragraph">控制台代理和Cloud Volumes ONTAP Terraform 模块的所有支持变量均已在<block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix=" " category="inline-code"></block>文件。您必须引用<block ref="c9ac8098c5ea9d3e6a9a596ff0c512a4" prefix=" " category="inline-code"></block>在添加到文件之前<block ref="b5f9e43085599050738084372b6e118c" prefix=" " category="inline-code"></block>文件。</block>
-  <block id="cffd524e7584b35b3f234566e787074a" category="paragraph">本文支持适用于 Azure 自动化解决方案的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp控制台自动化目录中获取该解决方案。</block>
-  <block id="5d09da2277f611b12c1192075edf858b" category="list-text">您必须下载<block ref="30024bb19935ec088c5fad37f3305886" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="c885be86fb876836f2cffef8e6f892c3" prefix=" " category="inline-code"></block>。</block>
   <block id="9af8b9139ba4d3c38452a4b4dd5dc0ce" category="paragraph">在此阶段，您必须创建两个环境变量文件。一个文件用于使用服务主体凭据对 Azure 资源管理器 API 进行身份验证。第二个文件用于设置环境变量，以使控制台 Terraform 模块能够定位和验证 Azure API。</block>
   <block id="b5d0f097b58f0a238a973b8883c2b888" category="paragraph">通过您的云提供商注册NetApp智能服务，按小时付费（PAYGO）或通过年度合同付费。NetApp智能服务包括NetApp备份和恢复、 Cloud Volumes ONTAP、 NetApp云分层、 NetApp勒索软件恢复和NetApp灾难恢复。NetApp数据分类包含在您的订阅中，无需额外付费</block>
   <block id="c145e5d9bbc07a35d9ec4bfcb9189bac" category="list-text">从 Azure 门户导航到 *SaaS* 并选择 *订阅NetApp智能服务*。</block>
   <block id="f7383b34ae31d953001b610e00da4afd" category="list-text">配置控制台门户以将 SaaS 订阅导入控制台。</block>
   <block id="6e4df4a505701eef50b1a600fd49dc6f" category="paragraph">然后您将被重定向到控制台门户以确认配置。</block>
   <block id="fe8a9f9b7bc763f1d154b8734056c819" category="list-text">通过选择“*保存*”确认控制台门户中的配置。</block>
-  <block id="a6943c6b7c16c335ccc7ad97dddf71a4" category="summary">本文支持适用于 Google Cloud Automation Solution 的NetApp Cloud Volumes ONTAP ， NetApp客户可从NetApp Console Automation Catalog 获取该解决方案。</block>
-  <block id="4f684004fa173b6555307c98c953cfd0" category="list-text">您必须下载<block ref="8c9665e2a194f7858220dd7954b57dbd" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="3122a7091302712dc5048f11784a1882" prefix=" " category="inline-code"></block>。</block>
   <block id="8250fae01de94ed466e3c7d04c48825b" category="list-text">创建具有部署Cloud Volumes ONTAP和控制台代理权限的服务帐户<block ref="c2b6aba427b8cb58071597c60cc5709a" category="inline-link-macro-rx"></block></block>
   <block id="21be893a95251ea5e5b664779c01adb9" category="list-text">导航至<block ref="9e380fd6b80c64d2f38ea11babc2a93b" category="inline-link-macro-rx"></block>并选择*订阅NetApp智能服务*。</block>
   <block id="765e7d187adbd863df2cdfb5e6ca75d2" category="paragraph">您可以直接从 Google Cloud Platform 进行配置。您将被重定向到控制台门户以确认配置。</block>
@@ -777,16 +764,32 @@
   <block id="2da82512d73d9b6cbf45b974feb24e0f" category="paragraph">您必须在项目中启用以下 Google Cloud API 才能部署Cloud Volumes ONTAP和控制台代理。</block>
   <block id="1e9db9ceda11b564a3d8eb4a06e57595" category="summary">您可以使用此自动化解决方案Amazon FSx for NetApp ONTAP以及卷和相关的FlexCache。</block>
   <block id="007f9323bc46fec8d38ceae5f437e2af" category="admonition">Amazon FSx for NetApp ONTAP管理也称为 *FSx for ONTAP*。</block>
-  <block id="7f8cb6c6ad55db1cd033ece1fd1d6a27" category="list-text">您需要下载<block ref="360cb584134d217c34d7d9dd80a33794" category="inline-link-rx"></block>通过NetApp Console Web UI 实现自动化解决方案。该解决方案被打包为文件<block ref="e2e5a273eb632b27931109b94363bfa4" prefix=" " category="inline-code"></block>。</block>
   <block id="505987e29e139a576f9ef0ae72ba89a4" category="section-title">步骤 6：Amazon FSx for NetApp ONTAP管理和FlexCache配置 Amazon FSx</block>
   <block id="86c2fdb4fcf9450dcebc9160b75d70bb" category="paragraph">您可以为 NetApp ONTAP 管理和FlexCache配置Amazon FSx for NetApp ONTAP 。</block>
   <block id="08dea8fb94807c4f762b718af62510d0" category="section-title">步骤 7：销毁Amazon FSx for NetApp ONTAP管理和FlexCache</block>
   <block id="9b019a95fc261f81937d33bb7349e670" category="paragraph">您可以选择删除和​​移除Amazon FSx for NetApp ONTAP管理和FlexCache。</block>
   <block id="edfb5e5fa19c2260107795cbfcfec622" category="paragraph">您可以使用此自动化解决方案通过Amazon FSx for NetApp ONTAP管理对源系统进行灾难恢复备份。</block>
-  <block id="434c5de57e421ba3594a568fd0ac2e16" category="list-text">您需要下载<block ref="2b8b09ed964048a68a2657989a42ba67" category="inline-link-rx"></block>通过NetApp Console Web UI 实现自动化解决方案。该解决方案打包为<block ref="d588083a4963fc0f1cdbef6c659ba457" prefix=" " category="inline-code"></block>。此 zip 文件包含<block ref="b0de125824ad7cd9060627a012eaff36" prefix=" " category="inline-code"></block>您将使用该文件来部署本文档中描述的解决方案。</block>
-  <block id="7411537245439e8c6d286dcf831b826f" category="paragraph">您可以使用ONTAP day 0/1 自动化解决方案通过 Ansible 部署和配置ONTAP集群。解决方案可从<block ref="0d4e77b878442b39098e894ab0c6a48e" category="inline-link-macro-rx"></block>。</block>
-  <block id="fe12db6b630ceddf95e6db88b6730521" category="list-text">下载<block ref="7688e8be8ea1bcdb330dce59b08c482c" category="inline-link-macro-rx"></block>通过控制台 Web UI 实现自动化解决方案。该解决方案打包为<block ref="aa320f9d69cdf44a5e391cb56d0298cd" prefix=" " category="inline-code"></block>。</block>
   <block id="3eb506ace636162f6ec3f2f1c72a6baa" category="section-title">NetApp控制台资源</block>
   <block id="3c031b939f6ec312ee601d021e7a6644" category="inline-link">NetApp控制台</block>
   <block id="fe4d24027a89af24b4596cabe21c2140" category="list-text"><block ref="fe4d24027a89af24b4596cabe21c2140" category="inline-link-rx"></block></block>
+  <block id="5d5d8414d96fc428f736ae2f6fa3ada7" category="inline-link">NetApp Console自动化中心</block>
+  <block id="70fd5a6d551f97b4eed029be620f3f56" category="paragraph">这<block ref="dc3bfae542b9e4cc3361fc7eb5625d17" category="inline-link-rx"></block> 可通过控制台 Web 用户界面访问。自动化中心提供各种解决方案，可帮助您自动部署和集成NetApp产品。这些解决方案的文档按以下所述的几个不同的产品或功能领域进行组织。</block>
+  <block id="c388a7c2dd65e80e1d098b8c3436454e" category="list-text">你需要下载<block ref="c5bc73f4079dda8b90ad4c62d4f8f43e" category="inline-link-rx"></block> 通过NetApp ConsoleWeb UI 实现自动化解决方案。该解决方案打包为文件<block ref="bc18238b0e7defc6245f2b37d9c3bf66" prefix=" " category="inline-code"></block>。</block>
+  <block id="9735b618c332b65f2c2d7b9c55531e9e" category="summary">NetApp Console自动化中心是一系列自动化解决方案的集合，可供NetApp客户、合作伙伴和员工使用。该中心具有多项功能和优势。</block>
+  <block id="f3ada0942127e3f9e12b89608725173f" category="doc">NetApp Console自动化中心概述</block>
+  <block id="e6ea5b9dc0d45ec96da621b6ce93874d" category="paragraph">NetApp Console自动化中心是一系列自动化解决方案的集合，可供NetApp客户、合作伙伴和员工使用。自动化中心具有多项功能和优势。</block>
+  <block id="3670cd715db6f54af3614792a4fb3bbc" category="list-text">您可以访问<block ref="dc3bfae542b9e4cc3361fc7eb5625d17" category="inline-link-rx"></block> 通过控制台 Web 用户界面。这为增强NetApp产品和服务的自动化和运行所需的脚本、剧本和模块提供了一个统一的位置。</block>
+  <block id="4a48c64be8c494fbe893a36f0108560b" category="list-text">NetApp致力于帮助我们的客户改进和简化其数据中心和云环境的自动化。我们期望继续改进 Console 自动化中心，以满足客户需求、技术变革和持续的产品集成。</block>
+  <block id="4bde2755cb518f06c8ca1885ba99c8f8" category="summary">本文支持NetApp Cloud Volumes ONTAP for AWS Automation Solution， NetApp客户可通过NetApp Console自动化中心获取该解决方案。</block>
+  <block id="06cd87959cc94a8e1344c9f6080b509c" category="paragraph">本文支持NetApp Cloud Volumes ONTAP for AWS 自动化解决方案， NetApp客户可通过NetApp Console自动化中心获取该解决方案。</block>
+  <block id="934478266d4cedcffd822b33dd9d3507" category="list-text">您必须下载 <block ref="673a74c866be4a24462fad71f55cf084" category="inline-link-macro-rx"></block> 通过控制台 Web 用户界面实现自动化解决方案。该解决方案打包如下：<block ref="4620783dba91696483c654c28ea6a8d7" prefix=" " category="inline-code"></block>。</block>
+  <block id="603e10c78b508652fdf652aa4590e7f9" category="paragraph">本文支持NetApp Cloud Volumes ONTAP for Azure Automation Solution， NetApp客户可通过NetApp Console自动化中心获取该解决方案。</block>
+  <block id="894fdbc4898f6d8d4bf1849e12627419" category="list-text">您必须下载 <block ref="b09416884c47e859bc548c73114bd552" category="inline-link-macro-rx"></block> 通过控制台 Web 用户界面实现自动化解决方案。该解决方案打包如下：<block ref="c885be86fb876836f2cffef8e6f892c3" prefix=" " category="inline-code"></block>。</block>
+  <block id="257c89f68d2a572afaf96f6a9124a4ef" category="summary">本文支持NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution， NetApp客户可通过NetApp Console Automation 中心获取该解决方案。</block>
+  <block id="e1b0771a1aa81093bc7a25d1c6c5d097" category="paragraph">本文支持NetApp Cloud Volumes ONTAP for Google Cloud Automation Solution， NetApp客户可通过NetApp Console自动化中心获取该解决方案。</block>
+  <block id="18873d3722fcc1edd191f3b0cbbe318c" category="list-text">您必须下载 <block ref="deafcde702ec1a5e109d3d8bc60d09a8" category="inline-link-macro-rx"></block> 通过控制台 Web 用户界面实现自动化解决方案。该解决方案打包如下：<block ref="3122a7091302712dc5048f11784a1882" prefix=" " category="inline-code"></block>。</block>
+  <block id="fce6ac82d45ec158e5c05f9f6b1ffac3" category="list-text">你需要下载<block ref="a4a5c9946ebdaec2a2bd904ec33aeb8f" category="inline-link-rx"></block> 通过NetApp ConsoleWeb UI 实现自动化解决方案。该解决方案打包为文件<block ref="e2e5a273eb632b27931109b94363bfa4" prefix=" " category="inline-code"></block>。</block>
+  <block id="91799bfc74533ba933b618cf923fc689" category="list-text">你需要下载<block ref="ae6826a6356fd364a460dad2993aee13" category="inline-link-rx"></block> 通过NetApp ConsoleWeb UI 实现自动化解决方案。该解决方案打包如下：<block ref="d588083a4963fc0f1cdbef6c659ba457" prefix=" " category="inline-code"></block>。此压缩包包含<block ref="b0de125824ad7cd9060627a012eaff36" prefix=" " category="inline-code"></block> 您将使用此文件来部署本文档中描述的解决方案。</block>
+  <block id="535143ebf2bac1ceade1e3b2e2eb3efe" category="paragraph">您可以使用ONTAP day 0/1 自动化解决方案，通过 Ansible 部署和配置ONTAP集群。解决方案可从以下途径获得： <block ref="54283211df43e578c8533ed3e86d30d5" category="inline-link-macro-rx"></block>。</block>
+  <block id="aad7de3ad44b7f9af2c4433442a1c425" category="list-text">下载 <block ref="0a67138de137c9c79362412ec4b8d06b" category="inline-link-macro-rx"></block> 通过控制台 Web 用户界面实现自动化解决方案。该解决方案打包如下：<block ref="aa320f9d69cdf44a5e391cb56d0298cd" prefix=" " category="inline-code"></block>。</block>
 </blocks>

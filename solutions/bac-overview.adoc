@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: solutions/bac-overview.html 
-keywords: bluexp automation catalog, automation catalog, overview, introduction 
-summary: NetApp Console 自动化目录是可供NetApp客户、合作伙伴和员工使用的自动化解决方案的集合。该目录具有多种特点和优点。 
+keywords: bluexp automation hub, automation hub, overview, introduction 
+summary: NetApp Console自动化中心是一系列自动化解决方案的集合，可供NetApp客户、合作伙伴和员工使用。该中心具有多项功能和优势。 
 ---
-= NetApp控制台自动化目录概述
+= NetApp Console自动化中心概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,11 +14,11 @@ summary: NetApp Console 自动化目录是可供NetApp客户、合作伙伴和�
 
 
 [role="lead"]
-NetApp Console 自动化目录是可供NetApp客户、合作伙伴和员工使用的自动化解决方案的集合。该目录具有多种特点和优点。
+NetApp Console自动化中心是一系列自动化解决方案的集合，可供NetApp客户、合作伙伴和员工使用。自动化中心具有多项功能和优势。
 
-只需一个位置即可满足您的自动化需求:: 您可以访问 https://console.netapp.com/automationCatalog["NetApp控制台自动化目录"^]通过控制台 Web 用户界面。这为增强NetApp产品和服务的自动化和操作所需的脚本、剧本和模块提供了一个单一位置。
+只需一个位置即可满足您的自动化需求:: 您可以访问 https://console.netapp.com/automationHub["NetApp Console自动化中心"^] 通过控制台 Web 用户界面。这为增强NetApp产品和服务的自动化和运行所需的脚本、剧本和模块提供了一个统一的位置。
 解决方案由NetApp创建和测试:: 所有自动化解决方案和脚本均由NetApp创建并进行了测试。每个解决方案都针对特定的客户用例或请求。大多数人都关注与NetApp文件和数据服务的集成。
 文档:: 每个自动化解决方案都包含相关文档来帮助您入门。虽然可以通过控制台 Web 界面访问解决方案，但所有文档都可以在此站点上找到。该文档是根据NetApp产品和云服务组织的。
-为未来奠定坚实的基础:: NetApp致力于帮助我们的客户改善和简化其数据中心和云环境的自动化。我们希望继续增强控制台自动化目录，以满足客户需求、技术变化和持续的产品集成。
+为未来奠定坚实的基础:: NetApp致力于帮助我们的客户改进和简化其数据中心和云环境的自动化。我们期望继续改进 Console 自动化中心，以满足客户需求、技术变革和持续的产品集成。
 我们希望听到您的心声:: NetApp客户体验办公室(CXO)自动化团队希望听到您的心声。如果您有任何反馈、问题或功能请求、请发送电子邮件至mailto：ng) CxO-automance-admins@NetApp．com[CXO自动化团队]。
 

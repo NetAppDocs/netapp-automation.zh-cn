@@ -9,7 +9,7 @@ indexpage:
     links:
     - title: 新增功能
       url: "/about/whats-new.html"
-    - title: NetApp控制台自动化目录
+    - title: NetApp Console自动化中心
       url: "/solutions/bac-overview.html"
     - title: 其他资源
       url: "/support/additional-resources.html"
